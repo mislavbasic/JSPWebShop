@@ -1,11 +1,12 @@
-package com.mbasic.dal.repository;
+package com.mbasic.dal.service;
 
 import com.mbasic.dal.model.User;
 
 import java.util.List;
 
-public interface UserRepo {
+public interface UserService {
+
     boolean addUser(User user);
     boolean deleteUser(User user);
-    List<User> getAllUsers();
+    List<User> findAllUsers();
 }
