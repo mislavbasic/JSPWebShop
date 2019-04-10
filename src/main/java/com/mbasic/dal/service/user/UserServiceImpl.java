@@ -1,4 +1,4 @@
-package com.mbasic.dal.service;
+package com.mbasic.dal.service.user;
 
 import com.mbasic.dal.model.User;
 

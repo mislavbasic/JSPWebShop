@@ -1,7 +1,7 @@
 package com.mbasic.servlet;
 
 import com.mbasic.dal.model.User;
-import com.mbasic.dal.service.UserService;
+import com.mbasic.dal.service.user.UserService;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
