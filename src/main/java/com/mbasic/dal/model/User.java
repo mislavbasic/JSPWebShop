@@ -1,11 +1,10 @@
 package com.mbasic.dal.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "Users")
-public class User implements Serializable {
+public class User {
 
     @Column(name = "IDUser")
     @Id

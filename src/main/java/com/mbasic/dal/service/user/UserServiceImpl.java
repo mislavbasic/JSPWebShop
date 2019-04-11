@@ -5,6 +5,7 @@ import com.mbasic.dal.model.User;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
@@ -12,14 +13,16 @@ public class UserServiceImpl implements UserService {
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("WebShop");
 
     @Override
-    public boolean addUser(User user) {
+    public boolean login(String username, String password) {
         EntityManager em;
         try {
             em = emf.createEntityManager();
             em.getTransaction().begin();
-            em.persist(user);
-            em.getTransaction().commit();
-            return true;
+            //TODO: ne mogu gledat ovo
+            Query find = em.createNativeQuery("SELECT * FROM Users WHERE Username = " + username + "AND Password = " + password, User.class);
+            if (find.getSingleResult() != null){
+                return true;
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -27,13 +30,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean deleteUser(User user) {
-        //logika
-        return false;
-    }
-
-    @Override
-    public List<User> findAllUsers() {
+    public List<User> findAll() {
         //logika
         return null;
     }
