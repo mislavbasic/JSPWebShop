@@ -36,51 +36,6 @@
 
 <%@include file="header.jsp"%>
 
-<!-- NAVIGATION -->
-<nav id="navigation">
-    <!-- container -->
-    <div class="container">
-        <!-- responsive-nav -->
-        <div id="responsive-nav">
-            <!-- NAV -->
-            <ul class="main-nav nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Hot Deals</a></li>
-                <li><a href="#">Categories</a></li>
-                <li><a href="#">Laptops</a></li>
-                <li><a href="#">Smartphones</a></li>
-                <li><a href="#">Cameras</a></li>
-                <li><a href="#">Accessories</a></li>
-            </ul>
-            <!-- /NAV -->
-        </div>
-        <!-- /responsive-nav -->
-    </div>
-    <!-- /container -->
-</nav>
-<!-- /NAVIGATION -->
-
-<!-- BREADCRUMB -->
-<div id="breadcrumb" class="section">
-    <!-- container -->
-    <div class="container">
-        <!-- row -->
-        <div class="row">
-            <div class="col-md-12">
-                <ul class="breadcrumb-tree">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">All Categories</a></li>
-                    <li><a href="#">Accessories</a></li>
-                    <li class="active">Headphones (227,490 Results)</li>
-                </ul>
-            </div>
-        </div>
-        <!-- /row -->
-    </div>
-    <!-- /container -->
-</div>
-<!-- /BREADCRUMB -->
-
 <!-- SECTION -->
 <div class="section">
     <!-- container -->
@@ -88,11 +43,11 @@
         <!-- row -->
         <div class="row">
             <!-- ASIDE -->
-            <div id="aside" class="col-md-3">
+            <form id="aside" class="col-md-3" action="store" method="POST">
                 <!-- aside Widget -->
                 <div class="aside">
                     <h3 class="aside-title">Categories</h3>
-                    <form class="checkbox-filter" action="store" method="POST">
+                    <div class="checkbox-filter">
 
                         <div class="input-checkbox">
                             <input type="checkbox" id="category-1" name="chbLaptops">
@@ -130,7 +85,7 @@
                             </label>
                         </div>
 
-                    </form>
+                    </div>
                 </div>
                 <!-- /aside Widget -->
 
@@ -140,13 +95,13 @@
                     <div class="price-filter">
                         <div id="price-slider"></div>
                         <div class="input-number price-min">
-                            <input id="price-min" type="number">
+                            <input id="price-min" type="number" name="priceMin" value="0">
                             <span class="qty-up">+</span>
                             <span class="qty-down">-</span>
                         </div>
                         <span>-</span>
                         <div class="input-number price-max">
-                            <input id="price-max" type="number">
+                            <input id="price-max" type="number" name="priceMax" value="0">
                             <span class="qty-up">+</span>
                             <span class="qty-down">-</span>
                         </div>
@@ -159,7 +114,7 @@
                     <h3 class="aside-title">Brand</h3>
                     <div class="checkbox-filter">
                         <div class="input-checkbox">
-                            <input type="checkbox" id="brand-1">
+                            <input type="checkbox" id="brand-1" name="chbSamsung">
                             <label for="brand-1">
                                 <span></span>
                                 SAMSUNG
@@ -167,7 +122,7 @@
                             </label>
                         </div>
                         <div class="input-checkbox">
-                            <input type="checkbox" id="brand-2">
+                            <input type="checkbox" id="brand-2" name="chbLg">
                             <label for="brand-2">
                                 <span></span>
                                 LG
@@ -175,7 +130,7 @@
                             </label>
                         </div>
                         <div class="input-checkbox">
-                            <input type="checkbox" id="brand-3">
+                            <input type="checkbox" id="brand-3" name="chbSony">
                             <label for="brand-3">
                                 <span></span>
                                 SONY
@@ -183,34 +138,28 @@
                             </label>
                         </div>
                         <div class="input-checkbox">
-                            <input type="checkbox" id="brand-4">
-                            <label for="brand-4">
-                                <span></span>
-                                SAMSUNG
-                                <small>(578)</small>
-                            </label>
-                        </div>
-                        <div class="input-checkbox">
-                            <input type="checkbox" id="brand-5">
+                            <input type="checkbox" id="brand-5" name="chbHp">
                             <label for="brand-5">
                                 <span></span>
-                                LG
+                                HP
                                 <small>(125)</small>
                             </label>
                         </div>
                         <div class="input-checkbox">
-                            <input type="checkbox" id="brand-6">
+                            <input type="checkbox" id="brand-6" name="chbAsus">
                             <label for="brand-6">
                                 <span></span>
-                                SONY
+                                Asus
                                 <small>(755)</small>
                             </label>
                         </div>
                     </div>
                 </div>
                 <!-- /aside Widget -->
-
-            </div>
+                <div class="btn-group-lg pull-right">
+                    <input class="btn btn-danger btn" type="submit" value="Sort">
+                </div>
+            </form>
             <!-- /ASIDE -->
 
             <!-- STORE -->
@@ -234,10 +183,6 @@
                             </select>
                         </label>
                     </div>
-                    <ul class="store-grid">
-                        <li class="active"><i class="fa fa-th"></i></li>
-                        <li><a href="#"><i class="fa fa-th-list"></i></a></li>
-                    </ul>
                 </div>
                 <!-- /store top filter -->
 
@@ -246,12 +191,12 @@
                     <c:forEach items="${itemList}" var="item">
                         <div class="col-md-4 col-xs-6">
                             <div class="product">
-                                <div class="product-img">
+                                <a class="product-img" href="#">
                                     <img src="./img/product01.png" alt="">
-                                </div>
+                                </a>
                                 <div class="product-body">
-                                    <h3 class="product-name"><a href="#">${item.name}</a></h3>
-                                    <h4 class="product-price">${item.price}</h4>
+                                    <h3 class="product-name">${item.name}</h3>
+                                    <h4 class="product-price">$${item.price}</h4>
                                 </div>
                                 <div class="add-to-cart">
                                     <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>

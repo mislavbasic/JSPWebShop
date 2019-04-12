@@ -1,6 +1,5 @@
 package com.mbasic.servlet;
 
-import com.mbasic.dal.model.User;
 import com.mbasic.dal.service.model.ModelService;
 import com.mbasic.dal.service.user.UserService;
 

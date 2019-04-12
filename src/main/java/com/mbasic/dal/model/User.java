@@ -10,10 +10,8 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     @Column(name = "Username")
     private String username;
-
     @Column(name = "Password")
     private String password;
 

@@ -25,7 +25,7 @@ public class StoreServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Item> itemList = itemService.findByCategory("'laptop'");
+        List<Item> itemList = itemService.findAll();
         request.setAttribute("itemList", itemList);
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/store.jsp");
         dispatcher.forward(request, response);

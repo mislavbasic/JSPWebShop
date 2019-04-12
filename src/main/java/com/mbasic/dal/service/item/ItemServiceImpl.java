@@ -29,4 +29,20 @@ public class ItemServiceImpl implements ItemService {
         }
         return null;
     }
+
+    @Override
+    public List<Item> findAll() {
+        List<Item> itemList;
+        EntityManager em;
+        try {
+            em = emf.createEntityManager();
+            em.getTransaction().begin();
+            Query findAll = em.createNativeQuery("SELECT * FROM Items", Item.class);
+            itemList = findAll.getResultList();
+            return itemList;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

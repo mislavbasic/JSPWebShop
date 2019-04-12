@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ItemService {
     List<Item> findByCategory(String category);
+    List<Item> findAll();
 }

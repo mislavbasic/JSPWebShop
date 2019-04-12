@@ -8,6 +8,7 @@ public class ModelServiceImpl implements ModelService {
 
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("WebShop");
 
+    //Add and delete any object to database.
     @Override
     public boolean add(Object o) {
         EntityManager em;

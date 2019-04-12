@@ -10,31 +10,20 @@ public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     @Column(name = "Name")
     private String name;
-
     @Column(name = "Price")
     private Double price;
-
     @Column(name = "Description")
     private String description;
-
     @Column(name = "Color")
     private String color;
-
     @Column(name = "Size")
     private String size;
-
     @Column(name = "Category")
     private String category;
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
+    public Item() {
     }
 
     public int getId() {
@@ -83,5 +72,13 @@ public class Item {
 
     public void setSize(String size) {
         this.size = size;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }
