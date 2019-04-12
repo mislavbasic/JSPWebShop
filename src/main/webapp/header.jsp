@@ -18,7 +18,7 @@
                 <!-- LOGO -->
                 <div class="col-md-3">
                     <div class="header-logo">
-                        <a href="#" class="logo">
+                        <a href="store" class="logo">
                             <img src="./img/logo.png" alt="">
                         </a>
                     </div>
@@ -37,11 +37,11 @@
                 <!-- /SEARCH BAR -->
 
                 <!-- ACCOUNT -->
-                <div class="col-md-3 clearfix">
+                <div class="col-md-3">
                     <div class="header-ctn">
                         <!-- My Account -->
                         <div>
-                            <a href="/WebShop/account.jsp">  <!--  TODO: Absolute paths not recommended in JSPs -->
+                            <a href="account">
                                 <i class="fa fa-user-o"></i>
                                 <span>My Account</span>
                             </a>

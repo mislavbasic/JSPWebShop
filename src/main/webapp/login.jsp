@@ -5,6 +5,7 @@
   Time: 10:19 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%-- TODO: dodati da se ne može poslati prazna forma --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -18,28 +19,44 @@
     <!-- Bootstrap -->
     <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
 
-    <!-- Slick -->
-    <link type="text/css" rel="stylesheet" href="css/slick.css"/>
-    <link type="text/css" rel="stylesheet" href="css/slick-theme.css"/>
-
-    <!-- nouislider -->
-    <link type="text/css" rel="stylesheet" href="css/nouislider.min.css"/>
-
-    <!-- Font Awesome Icon -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
 
-    <!-- Custom stlylesheet -->
+    <!-- Custom CSS -->
     <link type="text/css" rel="stylesheet" href="css/style.css"/>
 
 </head>
 <body>
 <%@include file="header.jsp"%>
 
-<form action="login" method="POST">
-    <input type="text" name="userName">
-    <input type="password" name="password">
-    <input type="submit" value="Login">
-</form>
-<%@include file="footer.jsp"%>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6" style="margin-top: 10%">
+            <form action="login" method="POST">
+                <div class="form-group">
+                    <label for="InputEmail">Email address</label>
+                    <input type="email" class="form-control" id="InputEmail" placeholder="Enter email" name="eMail">
+                </div>
+                <div class="form-group">
+                    <label for="InputPassword">Password</label>
+                    <input type="password" class="form-control" id="InputPassword" placeholder="Password" name="password">
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="chbRemember">
+                    <label class="form-check-label" for="chbRemember">Remember me</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign In</button>
+            </form>
+            <div>
+                <p style="color: red;">${badLogin}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="position: fixed; bottom: 0; width: 100%;">
+    <%@include file="footer.jsp"%>
+</div>
 </body>
 </html>

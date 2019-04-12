@@ -3,12 +3,15 @@ package com.mbasic.dal.service.model;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+//Adds and deletes any object to/from database
 public class ModelServiceImpl implements ModelService {
 
+    private static final Logger LOGGER = Logger.getLogger(ModelServiceImpl.class.getName());
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("WebShop");
 
-    //Add and delete any object to database.
     @Override
     public boolean add(Object o) {
         EntityManager em;
@@ -19,13 +22,14 @@ public class ModelServiceImpl implements ModelService {
             em.getTransaction().commit();
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.log(Level.WARNING, e.toString(), e);
         }
         return false;
     }
 
     @Override
     public boolean delete(Object o) {
+        //TODO: logika
         return false;
     }
 }

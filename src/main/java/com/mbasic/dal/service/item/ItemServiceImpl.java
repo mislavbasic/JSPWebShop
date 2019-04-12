@@ -1,16 +1,18 @@
 package com.mbasic.dal.service.item;
 
 import com.mbasic.dal.model.Item;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+//Returns Item object/s from database
 public class ItemServiceImpl implements ItemService {
 
+    private static final Logger LOGGER = Logger.getLogger(ItemServiceImpl.class.getName());
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("WebShop");
 
     @Override
@@ -25,7 +27,7 @@ public class ItemServiceImpl implements ItemService {
             itemList = findByCategory.getResultList();
             return itemList;
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.log(Level.WARNING, e.toString(), e);
         }
         return null;
     }
@@ -41,7 +43,7 @@ public class ItemServiceImpl implements ItemService {
             itemList = findAll.getResultList();
             return itemList;
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.log(Level.WARNING, e.toString(), e);
         }
         return null;
     }

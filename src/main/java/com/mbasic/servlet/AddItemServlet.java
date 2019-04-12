@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/*This servlet adds items to database,
+* only Administrator can access, otherwise redirect to 404 page*/
 @WebServlet(name = "AddItemServlet", urlPatterns = {"/AddItem"})
 public class AddItemServlet extends HttpServlet {
 

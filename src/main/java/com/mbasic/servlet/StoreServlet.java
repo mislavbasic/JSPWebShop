@@ -2,8 +2,6 @@ package com.mbasic.servlet;
 
 import com.mbasic.dal.model.Item;
 import com.mbasic.dal.service.item.ItemService;
-import com.mbasic.dal.service.model.ModelService;
-
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+/*This servlet returns items from database, GET shows all items in database
+* sorted by price/name. POST handles sort requests*/
 @WebServlet(name = "StoreServlet", urlPatterns = {"/store"})
 public class StoreServlet extends HttpServlet {
 
