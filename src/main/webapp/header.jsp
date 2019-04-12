@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Mislav
@@ -26,7 +27,7 @@
                 <!-- /LOGO -->
 
                 <!-- SEARCH BAR -->
-                <div class="col-md-6">
+                <div class="col-md-5">
                     <div class="header-search">
                         <form>
                             <input class="input" placeholder="Search here">
@@ -37,15 +38,18 @@
                 <!-- /SEARCH BAR -->
 
                 <!-- ACCOUNT -->
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="header-ctn">
                         <!-- My Account -->
-                        <div>
-                            <a href="account">
-                                <i class="fa fa-user-o"></i>
-                                <span>My Account</span>
-                            </a>
-                        </div>
+                        <c:if test="${loggedIn == 1}">
+                            <div>
+                                <a href="account">
+                                    <i class="fa fa-user-o"></i>
+                                    <span>My Account</span>
+                                </a>
+                            </div>
+                        </c:if>
+                        <!-- /My Account -->
 
                         <!-- Cart -->
                         <div>
@@ -56,6 +60,28 @@
                             </a>
                         </div>
                         <!-- /Cart -->
+
+                        <!-- Logout -->
+                        <c:if test="${loggedIn == 1}">
+                            <div>
+                                <a href="logout">
+                                    <i class="fa fa-sign-out"></i>
+                                    <span>Sign Out</span>
+                                </a>
+                            </div>
+                        </c:if>
+                        <!-- /Logout -->
+
+                        <!-- Login -->
+                        <c:if test="${loggedIn != 1}">
+                            <div>
+                                <a href="login">
+                                    <i class="fa fa-sign-in"></i>
+                                    <span>Sign In</span>
+                                </a>
+                            </div>
+                        </c:if>
+                        <!-- /Login -->
 
                         <!-- Menu Toogle -->
                         <div class="menu-toggle">

@@ -19,13 +19,21 @@ public class AccountServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
-
-        if (session.getAttribute("user") != null) {
+        if (checkLogIn(request)){
+            prepareHeaderIcons(request);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/account.jsp");
             dispatcher.forward(request, response);
         } else {
             response.sendRedirect("login");
         }
+    }
+
+    private boolean checkLogIn(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        return session.getAttribute("user") != null;
+    }
+
+    private void prepareHeaderIcons(HttpServletRequest request) {
+        request.setAttribute("loggedIn", 1);
     }
 }

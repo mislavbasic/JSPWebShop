@@ -27,7 +27,9 @@
 
 </head>
 <body>
-<%@include file="header.jsp"%>
+<jsp:include page="header.jsp">
+    <jsp:param name="loggedIn" value="${loggedIn}"/>
+</jsp:include>
 
 <div class="container">
     <div class="row">

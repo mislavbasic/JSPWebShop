@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
         try {
             em = emf.createEntityManager();
             em.getTransaction().begin();
-            Query login = em.createNativeQuery("SELECT * FROM Users WHERE Email = " + email + " AND Password = " + password, User.class);
+            Query login = em.createNativeQuery("SELECT * FROM Users WHERE Email = '" + email + "' AND Password = '" + password + "'", User.class);
             return (User)login.getSingleResult();
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, e.toString(), e);

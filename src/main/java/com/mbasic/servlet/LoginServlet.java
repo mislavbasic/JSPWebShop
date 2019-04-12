@@ -25,13 +25,12 @@ public class LoginServlet extends HttpServlet {
 
     //TODO: checkbox remember me ne radi ništa
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String email = request.getParameter("eMail");
-        String password = request.getParameter("password");
-        User user = userService.login(email, password);
+        User user = findUser(request);
+
         if (user != null){
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/store");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("store.jsp");   //TODO: ne treba tu preusmjeravati nego na servlet
             dispatcher.forward(request, response);
         } else {
             request.setAttribute("badLogin", "Wrong credentials.");
@@ -43,5 +42,11 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/login.jsp");
         dispatcher.forward(request, response);
+    }
+
+    private User findUser(HttpServletRequest request) {
+        String email = request.getParameter("eMail");
+        String password = request.getParameter("password");
+        return userService.login(email, password);
     }
 }

@@ -22,22 +22,12 @@ public class RegisterServlet extends HttpServlet {
     private ModelService modelService;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        User user = new User(
-                request.getParameter("firstName"),
-                request.getParameter("lastName"),
-                request.getParameter("eMail"),
-                request.getParameter("password"),
-                request.getParameter("address1"),
-                request.getParameter("address2"),
-                request.getParameter("state"),
-                request.getParameter("city"),
-                request.getParameter("zip")
-        );
+        User user = createUserObject(request);    //TODO:provjerit jesam li sjebao sad s ovim sve
 
         if (modelService.add(user)){
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/store");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/store");  //TODO:mislim da ovo ne radi
             dispatcher.forward(request, response);
         } else {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/register.jsp");
@@ -49,5 +39,19 @@ public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/register.jsp");
         dispatcher.forward(request, response);
+    }
+
+    private User createUserObject(HttpServletRequest request) {
+        return new User(
+                request.getParameter("firstName"),
+                request.getParameter("lastName"),
+                request.getParameter("eMail"),
+                request.getParameter("password"),
+                request.getParameter("address1"),
+                request.getParameter("address2"),
+                request.getParameter("state"),
+                request.getParameter("city"),
+                request.getParameter("zip")
+        );
     }
 }

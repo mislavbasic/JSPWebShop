@@ -34,7 +34,9 @@
 </head>
 <body>
 
-<%@include file="header.jsp"%>
+<jsp:include page="header.jsp">
+    <jsp:param name="loggedIn" value="${loggedIn}"/>
+</jsp:include>
 
 <!-- SECTION -->
 <div class="section">
