@@ -20,7 +20,6 @@ public class AccountServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (checkLogIn(request)){
-            prepareHeaderIcons(request);
             RequestDispatcher dispatcher = request.getRequestDispatcher("/account.jsp");
             dispatcher.forward(request, response);
         } else {
@@ -33,7 +32,4 @@ public class AccountServlet extends HttpServlet {
         return session.getAttribute("user") != null;
     }
 
-    private void prepareHeaderIcons(HttpServletRequest request) {
-        request.setAttribute("loggedIn", 1);
-    }
 }

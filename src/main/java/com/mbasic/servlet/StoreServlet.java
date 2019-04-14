@@ -27,7 +27,6 @@ public class StoreServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        prepareHeaderIcons(request);
         getAllItems(request);
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/store.jsp");
@@ -37,12 +36,5 @@ public class StoreServlet extends HttpServlet {
     private void getAllItems(HttpServletRequest request) {
         List<Item> itemList = itemService.findAll();
         request.setAttribute("itemList", itemList);
-    }
-
-    private void prepareHeaderIcons(HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        if (session.getAttribute("user") != null){
-            request.setAttribute("loggedIn", 1);
-        }
     }
 }

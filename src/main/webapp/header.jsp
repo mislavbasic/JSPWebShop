@@ -40,16 +40,18 @@
                 <!-- ACCOUNT -->
                 <div class="col-md-4">
                     <div class="header-ctn">
-                        <!-- My Account -->
-                        <c:if test="${loggedIn == 1}">
+
+                        <c:if test="${sessionScope.user != null}">
+                            <!-- My Account -->
                             <div>
                                 <a href="account">
                                     <i class="fa fa-user-o"></i>
                                     <span>My Account</span>
                                 </a>
                             </div>
+                            <!-- /My Account -->
                         </c:if>
-                        <!-- /My Account -->
+
 
                         <!-- Cart -->
                         <div>
@@ -61,27 +63,31 @@
                         </div>
                         <!-- /Cart -->
 
-                        <!-- Logout -->
-                        <c:if test="${loggedIn == 1}">
+
+                        <c:if test="${sessionScope.user != null}">
+                            <!-- Logout -->
                             <div>
                                 <a href="logout">
                                     <i class="fa fa-sign-out"></i>
                                     <span>Sign Out</span>
                                 </a>
                             </div>
+                            <!-- /Logout -->
                         </c:if>
-                        <!-- /Logout -->
 
-                        <!-- Login -->
-                        <c:if test="${loggedIn != 1}">
+
+
+                        <c:if test="${sessionScope.user == null}">
+                            <!-- Login -->
                             <div>
                                 <a href="login">
                                     <i class="fa fa-sign-in"></i>
                                     <span>Sign In</span>
                                 </a>
                             </div>
+                            <!-- /Login -->
                         </c:if>
-                        <!-- /Login -->
+
 
                         <!-- Menu Toogle -->
                         <div class="menu-toggle">

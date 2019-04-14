@@ -34,7 +34,7 @@
 </head>
 <body>
 <jsp:include page="header.jsp">
-    <jsp:param name="loggedIn" value="${loggedIn}"/>
+    <jsp:param name="loggedIn" value="${sessionScope.user}"/>
 </jsp:include>
 
 
