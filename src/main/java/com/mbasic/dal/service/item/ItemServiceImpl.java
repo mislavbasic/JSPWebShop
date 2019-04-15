@@ -33,6 +33,22 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
+    public Item findById(int id) {
+        Item item;
+        EntityManager em;
+        try {
+            em = emf.createEntityManager();
+            em.getTransaction().begin();
+            Query findById = em.createNativeQuery("SELECT * FROM Items WHERE IDItem = " + id, Item.class);
+            item = (Item) findById.getSingleResult();
+            return item;
+        } catch (Exception e) {
+            LOGGER.log(Level.WARNING, e.toString(), e);
+        }
+        return null;
+    }
+
+    @Override
     public List<Item> findAll() {
         List<Item> itemList;
         EntityManager em;

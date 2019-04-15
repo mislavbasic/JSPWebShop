@@ -22,9 +22,6 @@
     <link type="text/css" rel="stylesheet" href="css/slick.css"/>
     <link type="text/css" rel="stylesheet" href="css/slick-theme.css"/>
 
-    <!-- nouislider -->
-    <link type="text/css" rel="stylesheet" href="css/nouislider.min.css"/>
-
     <!-- Font Awesome Icon -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
 
@@ -193,7 +190,7 @@
                     <c:forEach items="${itemList}" var="item">
                         <div class="col-md-4 col-xs-6">
                             <div class="product">
-                                <a class="product-img" href="#">
+                                <a class="product-img" href="product?id=${item.id}">
                                     <img src="./img/product01.png" alt="">
                                 </a>
                                 <div class="product-body">
@@ -235,9 +232,6 @@
 <!-- jQuery Plugins -->
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/slick.min.js"></script>
-<script src="js/nouislider.min.js"></script>
-<script src="js/jquery.zoom.min.js"></script>
 <script src="js/main.js"></script>
 
 </body>

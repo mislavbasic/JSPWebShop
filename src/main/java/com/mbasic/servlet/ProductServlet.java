@@ -10,31 +10,23 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.List;
 
-/*This servlet returns items from database, GET shows all items in database
-* sorted by price/name. POST handles sort requests*/
-@WebServlet(name = "StoreServlet", urlPatterns = {"/store"})
-public class StoreServlet extends HttpServlet {
+@WebServlet(name = "ProductServlet", urlPatterns = {"/product"})
+public class ProductServlet extends HttpServlet {
 
     @Inject
     private ItemService itemService;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //TODO: logika za sort
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        getAllItems(request);
+        int id = Integer.parseInt(request.getParameter("id"));
+        request.setAttribute("item", itemService.findById(id));
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/store.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("product.jsp");
         dispatcher.forward(request, response);
-    }
-
-    private void getAllItems(HttpServletRequest request) {
-        List<Item> itemList = itemService.findAll();
-        request.setAttribute("itemList", itemList);
     }
 }

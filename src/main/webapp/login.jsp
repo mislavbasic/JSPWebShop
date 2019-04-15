@@ -34,7 +34,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3"></div>
-        <div class="col-md-6" style="margin-top: 10%">
+        <div class="col-md-6" style="margin-top: 10%; margin-bottom: 15%;">
             <form action="login" method="POST">
                 <div class="form-group">
                     <label for="InputEmail">Email address</label>
@@ -57,7 +57,7 @@
     </div>
 </div>
 
-<div style="position: fixed; bottom: 0; width: 100%;">
+<div>
     <%@include file="footer.jsp"%>
 </div>
 </body>

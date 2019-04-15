@@ -30,8 +30,8 @@ public class LoginServlet extends HttpServlet {
         if (user != null){
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("store.jsp");   //TODO: ne treba tu preusmjeravati nego na servlet
-            dispatcher.forward(request, response);
+
+            response.sendRedirect("/WebShop/store");
         } else {
             request.setAttribute("badLogin", "Wrong credentials.");
             RequestDispatcher dispatcher = request.getRequestDispatcher("/login.jsp");
