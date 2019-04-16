@@ -1,6 +1,48 @@
 (function($) {
 	"use strict"
 
+	// Mobile Nav toggle
+	$('.menu-toggle > a').on('click', function (e) {
+		e.preventDefault();
+		$('#responsive-nav').toggleClass('active');
+	})
+
+	/////////////////////////////////////////
+
+	// Products Slick
+	$('.products-slick').each(function() {
+		var $this = $(this),
+				$nav = $this.attr('data-nav');
+
+		$this.slick({
+			slidesToShow: 4,
+			slidesToScroll: 1,
+			autoplay: true,
+			infinite: true,
+			speed: 300,
+			dots: false,
+			arrows: true,
+			appendArrows: $nav ? $nav : false,
+			responsive: [{
+	        breakpoint: 991,
+	        settings: {
+	          slidesToShow: 2,
+	          slidesToScroll: 1,
+	        }
+	      },
+	      {
+	        breakpoint: 480,
+	        settings: {
+	          slidesToShow: 1,
+	          slidesToScroll: 1,
+	        }
+	      },
+	    ]
+		});
+	});
+
+	/////////////////////////////////////////
+
 	// Product Main img Slick
 	$('#product-main-img').slick({
     infinite: true,
@@ -8,7 +50,7 @@
     dots: false,
     arrows: true,
     fade: true,
-    asNavFor: '#product-imgs',
+    asNavFor: '#product-imgs'
   });
 
 	// Product imgs Slick
@@ -26,10 +68,32 @@
         settings: {
 					vertical: false,
 					arrows: false,
-					dots: true,
+					dots: true
         }
-      },
+      }
     ]
   });
 
+	// Input number
+	$('.input-number').each(function() {
+		var $this = $(this),
+			$input = $this.find('input[type="number"]'),
+			up = $this.find('.qty-up'),
+			down = $this.find('.qty-down');
+
+		down.on('click', function () {
+			var value = parseInt($input.val()) - 1;
+			value = value < 1 ? 1 : value;
+			$input.val(value);
+			$input.change();
+		});
+
+		up.on('click', function () {
+			var value = parseInt($input.val()) + 1;
+			$input.val(value);
+			$input.change();
+		})
+	});
+
+	/////////////////////////////////////////
 })(jQuery);

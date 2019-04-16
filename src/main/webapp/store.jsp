@@ -92,15 +92,14 @@
                 <div class="aside">
                     <h3 class="aside-title">Price</h3>
                     <div class="price-filter">
-                        <div id="price-slider"></div>
                         <div class="input-number price-min">
-                            <input id="price-min" type="number" name="priceMin" value="0">
+                            <input id="price-min" type="number" name="priceMin" value="1">
                             <span class="qty-up">+</span>
                             <span class="qty-down">-</span>
                         </div>
                         <span>-</span>
                         <div class="input-number price-max">
-                            <input id="price-max" type="number" name="priceMax" value="0">
+                            <input id="price-max" type="number" name="priceMax" value="9999">
                             <span class="qty-up">+</span>
                             <span class="qty-down">-</span>
                         </div>
@@ -232,6 +231,7 @@
 <!-- jQuery Plugins -->
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/slick.min.js"></script>
 <script src="js/main.js"></script>
 
 </body>

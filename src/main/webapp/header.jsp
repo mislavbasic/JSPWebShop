@@ -50,12 +50,10 @@
                                 </a>
                             </div>
                             <!-- /My Account -->
-                        </c:if>
-
 
                         <!-- Cart -->
                         <div>
-                            <a href="#">
+                            <a href="cart">
                                 <i class="fa fa-shopping-cart"></i>
                                 <span>My Cart</span>
                                 <div class="qty">3</div>
@@ -63,8 +61,6 @@
                         </div>
                         <!-- /Cart -->
 
-
-                        <c:if test="${sessionScope.user != null}">
                             <!-- Logout -->
                             <div>
                                 <a href="logout">
@@ -76,8 +72,26 @@
                         </c:if>
 
 
-
                         <c:if test="${sessionScope.user == null}">
+                            <!-- Register -->
+                            <div>
+                                <a href="register">
+                                    <i class="fa fa-user-plus"></i>
+                                    <span>Register</span>
+                                </a>
+                            </div>
+                            <!-- /Register -->
+
+                            <!-- Cart -->
+                            <div>
+                                <a href="cart">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <span>My Cart</span>
+                                    <div class="qty">3</div>
+                                </a>
+                            </div>
+                            <!-- /Cart -->
+
                             <!-- Login -->
                             <div>
                                 <a href="login">
@@ -87,16 +101,6 @@
                             </div>
                             <!-- /Login -->
                         </c:if>
-
-
-                        <!-- Menu Toogle -->
-                        <div class="menu-toggle">
-                            <a href="#">
-                                <i class="fa fa-bars"></i>
-                                <span>Menu</span>
-                            </a>
-                        </div>
-                        <!-- /Menu Toogle -->
                     </div>
                 </div>
                 <!-- /ACCOUNT -->

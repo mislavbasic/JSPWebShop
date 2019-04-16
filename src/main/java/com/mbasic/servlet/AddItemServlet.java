@@ -26,18 +26,14 @@ public class AddItemServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Item l1 = new Item();
         l1.setName("Lapatop");
-        l1.setColor("Blue");
         l1.setDescription("Ovo je super lapatop");
         l1.setPrice(999.99);
-        l1.setSize("15");
         l1.setCategory("laptop");
 
         Item l2 = new Item();
         l2.setName("Lapatop2");
-        l2.setColor("Blue2");
         l2.setDescription("Ovo je super lapatop2");
         l2.setPrice(1999.99);
-        l2.setSize("17");
         l2.setCategory("laptop");
 
         modelService.add(l1);

@@ -16,10 +16,6 @@ public class Item {
     private Double price;
     @Column(name = "Description")
     private String description;
-    @Column(name = "Color")
-    private String color;
-    @Column(name = "Size")
-    private String size;
     @Column(name = "Category")
     private String category;
 
@@ -56,22 +52,6 @@ public class Item {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
     }
 
     public String getCategory() {

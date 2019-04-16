@@ -17,21 +17,18 @@ import java.io.IOException;
 public class RegisterServlet extends HttpServlet {
 //TODO: attribute validation
 //TODO: ne sprema rvacke znakove u bazu
-//TODO: ne redirecta na /store servlet nakon što se user registrira, ali sesija radi čini mi se.....
     @Inject
     private ModelService modelService;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        User user = createUserObject(request);    //TODO:provjerit jesam li sjebao sad s ovim sve
+        User user = createUserObject(request);
 
         if (modelService.add(user)){
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/store");  //TODO:mislim da ovo ne radi
-            dispatcher.forward(request, response);
+            response.sendRedirect("/WebShop/store");
         } else {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/register.jsp");
-            dispatcher.forward(request, response);
+            doGet(request, response);
         }
 
     }
