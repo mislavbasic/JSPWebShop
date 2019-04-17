@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Mislav
@@ -44,18 +45,20 @@
                     <div><strong>TOTAL</strong></div>
                 </div>
 
-                <div class="order-col">
-                    <div>1x Product Name Goes Here</div>
-                    <div style="padding-right: 33%">
-                        <div class="input-number">
-                            <input type="number" value="1">
-                            <span class="qty-up">+</span>
-                            <span class="qty-down">-</span>
+                <c:forEach items="${sessionScope.cart}" var="item">
+                    <div class="order-col">
+                        <div>${item.name}</div>
+                        <div style="padding-right: 33%">
+                            <div class="input-number">
+                                <input type="number" value="1">
+                                <span class="qty-up">+</span>
+                                <span class="qty-down">-</span>
+                            </div>
                         </div>
+                        <div><button class="btn btn-danger">X</button></div>
+                        <div>${item.price}</div>
                     </div>
-                    <div><button class="btn btn-danger">X</button></div>
-                    <div>$980.00</div>
-                </div>
+                </c:forEach>
 
                 <div class="order-col">
                     <div><strong>TOTAL</strong></div>

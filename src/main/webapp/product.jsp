@@ -96,17 +96,22 @@
                     </div>
                     <p>${item.description}</p>
 
-                    <div class="add-to-cart">
+                    <form class="add-to-cart" action="cart" method="POST">
                         <div class="qty-label">
                             Qty
                             <div class="input-number">
-                                <input type="number" value="1">
+                                <input type="number" value="1" name="qty">
                                 <span class="qty-up">+</span>
                                 <span class="qty-down">-</span>
                             </div>
                         </div>
-                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                    </div>
+                        <input type="hidden" value="${item.id}" name="itemId">
+                        <div class="add-to-cart-btn">
+                            <i class="fa fa-shopping-cart"></i>
+                            <input type="submit" value="add to cart">
+                        </div>
+
+                    </form>
 
                     <ul class="product-links">
                         <li>Share:</li>
@@ -170,6 +175,5 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/slick.min.js"></script>
 <script src="js/main.js"></script>
-
 </body>
 </html>
