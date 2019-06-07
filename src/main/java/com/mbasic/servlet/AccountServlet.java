@@ -19,17 +19,8 @@ public class AccountServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (checkLogIn(request)){
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/account.jsp");
-            dispatcher.forward(request, response);
-        } else {
-            response.sendRedirect("login");
-        }
-    }
-
-    private boolean checkLogIn(HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        return session.getAttribute("user") != null;
+        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/account.jsp");
+        dispatcher.forward(request, response);
     }
 
 }

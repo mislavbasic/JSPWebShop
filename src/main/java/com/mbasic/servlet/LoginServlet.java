@@ -34,13 +34,13 @@ public class LoginServlet extends HttpServlet {
             response.sendRedirect("/WebShop/store");
         } else {
             request.setAttribute("badLogin", "Wrong credentials.");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/login.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/login.jsp");
             dispatcher.forward(request, response);
         }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/login.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/login.jsp");
         dispatcher.forward(request, response);
     }
 

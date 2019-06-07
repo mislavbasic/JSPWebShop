@@ -29,7 +29,7 @@ public class StoreServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         getAllItems(request);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/store.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/store.jsp");
         dispatcher.forward(request, response);
     }
 

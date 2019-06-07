@@ -17,17 +17,17 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
     <!-- Bootstrap -->
-    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
 
     <!-- Slick -->
-    <link type="text/css" rel="stylesheet" href="css/slick.css"/>
-    <link type="text/css" rel="stylesheet" href="css/slick-theme.css"/>
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/slick.css"/>
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/slick-theme.css"/>
 
     <!-- Font Awesome Icon -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.min.css">
 
     <!-- Custom stlylesheet -->
-    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>
 </head>
 <body>
 <jsp:include page="header.jsp">
@@ -99,9 +99,9 @@
 
 <%@include file="footer.jsp"%>
 
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/slick.min.js"></script>
-<script src="js/main.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/slick.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/main.js"></script>
 </body>
 </html>

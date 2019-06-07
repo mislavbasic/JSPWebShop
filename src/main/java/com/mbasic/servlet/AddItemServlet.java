@@ -13,7 +13,7 @@ import java.io.IOException;
 
 /*This servlet adds items to database,
 * only Administrator can access, otherwise redirect to 404 page*/
-@WebServlet(name = "AddItemServlet", urlPatterns = {"/AddItem"})
+@WebServlet(name = "AddItemServlet", urlPatterns = {"/addItem"})
 public class AddItemServlet extends HttpServlet {
 
     @Inject

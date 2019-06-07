@@ -34,7 +34,7 @@ public class RegisterServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/register.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/register.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -44,6 +44,7 @@ public class RegisterServlet extends HttpServlet {
                 request.getParameter("lastName"),
                 request.getParameter("eMail"),
                 request.getParameter("password"),
+                "USER",
                 request.getParameter("address1"),
                 request.getParameter("address2"),
                 request.getParameter("state"),

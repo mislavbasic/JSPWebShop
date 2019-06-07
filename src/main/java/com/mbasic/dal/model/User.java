@@ -18,6 +18,12 @@ public class User {
     private String email;
     @Column(name = "Password")
     private String password;
+
+
+    @Column(name = "Role")
+    private String role;
+
+
     @Column(name = "Address1")
     private String address1;
     @Column(name = "Address2")
@@ -32,11 +38,12 @@ public class User {
     public User() {
     }
 
-    public User(String firstName, String lastName, String email, String password, String address1, String address2, String state, String city, String zip) {
+    public User(String firstName, String lastName, String email, String password, String role, String address1, String address2, String state, String city, String zip) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.role = role;
         this.address1 = address1;
         this.address2 = address2;
         this.state = state;
@@ -82,6 +89,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getAddress1() {

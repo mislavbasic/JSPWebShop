@@ -20,7 +20,7 @@
                 <div class="col-md-3">
                     <div class="header-logo">
                         <a href="store" class="logo">
-                            <img src="./img/logo.png" alt="">
+                            <img src="${pageContext.request.contextPath}/img/logo.png" alt="">
                         </a>
                     </div>
                 </div>
@@ -40,6 +40,17 @@
                 <!-- ACCOUNT -->
                 <div class="col-md-4">
                     <div class="header-ctn">
+
+                        <c:if test="${sessionScope.user != null && sessionScope.user.getRole() == 'ADMIN'}">
+                            <!-- My Account -->
+                            <div>
+                            <a href="account">
+                            <i class="fa fa-trash-o"></i>
+                            <span>Admin</span>
+                            </a>
+                            </div>
+                            <!-- /My Account -->
+                        </c:if>
 
                         <c:if test="${sessionScope.user != null}">
                             <!-- My Account -->

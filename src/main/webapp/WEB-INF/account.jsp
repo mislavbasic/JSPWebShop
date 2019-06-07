@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Mislav
-  Date: 4/12/2019
-  Time: 5:40 PM
+  Date: 4/11/2019
+  Time: 10:15 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -10,19 +10,23 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Moj WebShop - Login</title>
+    <title>Moj WebShop - Account</title>
 
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
     <!-- Bootstrap -->
-    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
 
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- Slick -->
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/slick.css"/>
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/slick-theme.css"/>
 
-    <!-- Custom CSS -->
-    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.min.css">
+
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>
 
 </head>
 <body>
@@ -33,64 +37,58 @@
 <div class="container">
     <div class="row">
         <div class="col-md-1"></div>
-        <div class="col-md-10">
-            <form action="register" method="POST">
+        <div class="col-md-10" style="margin-top: 5%; margin-bottom: 10%;">
+            <!-- <form action="register" method="POST"> -->
                 <div class="form-group">
                     <div class="form-group col-md-6">
                         <label for="firstName">First name</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="First name" name="firstName">
+                        <input type="text" class="form-control" id="firstName" name="firstName" value="${sessionScope.user.getFirstName()}" readonly>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="lastName">Last name</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="Last name" name="lastName">
+                        <input type="text" class="form-control" id="lastName" name="lastName" value="${sessionScope.user.getLastName()}" readonly>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="form-group col-md-6">
                         <label for="eMail">Email</label>
-                        <input type="email" class="form-control" id="eMail" placeholder="Email" name="eMail">
+                        <input type="email" class="form-control" id="eMail" name="eMail" value="${sessionScope.user.getEmail()}" readonly>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+                        <input type="password" class="form-control" id="password" name="password" value="${sessionScope.user.getPassword()}" readonly>
                     </div>
                 </div>
 
                 <div class="form-group col-md-12">
                     <label for="address1">Address</label>
-                    <input type="text" class="form-control" id="address1" placeholder="1234 Main St" name="address1">
+                    <input type="text" class="form-control" id="address1" name="address1" value="${sessionScope.user.getAddress1()}" readonly>
                 </div>
 
                 <div class="form-group col-md-12">
                     <label for="address2">Address 2</label>
-                    <input type="text" class="form-control" id="address2" placeholder="Apartment, studio, or floor" name="address2">
+                    <input type="text" class="form-control" id="address2" name="address2" value="${sessionScope.user.getAddress2()}" readonly>
                 </div>
                 <!-- TODO: validacija forme...-->
                 <div class="form-group">
                     <div class="form-group col-md-5">
                         <label for="state">State</label>
-                        <input type="text" class="form-control" id="state" name="state">
+                        <input type="text" class="form-control" id="state" name="state" value="${sessionScope.user.getState()}" readonly>
                     </div>
                     <div class="form-group col-md-5">
                         <label for="city">City</label>
-                        <input type="text" class="form-control" id="city" name="city">
+                        <input type="text" class="form-control" id="city" name="city" value="${sessionScope.user.getCity()}" readonly>
                     </div>
                     <div class="form-group col-md-2">
                         <label for="zip">Zip</label>
-                        <input type="text" class="form-control" id="zip" name="zip">
+                        <input type="text" class="form-control" id="zip" name="zip" value="${sessionScope.user.getZip()}" readonly>
                     </div>
                 </div>
-                <div class="col-md-5"></div>
-                <input type="submit" value="Register" class="btn btn-danger" style="margin-top: 3%">
-            </form>
         </div>
     </div>
 </div>
 
-<div style="position: fixed; bottom: 0; width: 100%;">
-    <%@include file="footer.jsp"%>
-</div>
+<%@include file="footer.jsp"%>
 </body>
 </html>
-

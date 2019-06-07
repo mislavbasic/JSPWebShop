@@ -26,7 +26,7 @@ public class ProductServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         request.setAttribute("item", itemService.findById(id));
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("product.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/product.jsp");
         dispatcher.forward(request, response);
     }
 }
