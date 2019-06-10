@@ -1,5 +1,6 @@
 package com.mbasic.servlet;
 
+import com.mbasic.dal.model.Address;
 import com.mbasic.dal.model.User;
 import com.mbasic.dal.service.model.ModelService;
 
@@ -45,11 +46,12 @@ public class RegisterServlet extends HttpServlet {
                 request.getParameter("eMail"),
                 request.getParameter("password"),
                 "USER",
-                request.getParameter("address1"),
-                request.getParameter("address2"),
-                request.getParameter("state"),
-                request.getParameter("city"),
-                request.getParameter("zip")
+                new Address(
+                        request.getParameter("address1"),
+                        request.getParameter("address2"),
+                        request.getParameter("state"),
+                        request.getParameter("city"),
+                        request.getParameter("zip"))
         );
     }
 }

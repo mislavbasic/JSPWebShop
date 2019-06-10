@@ -18,37 +18,21 @@ public class User {
     private String email;
     @Column(name = "Password")
     private String password;
-
-
     @Column(name = "Role")
     private String role;
-
-
-    @Column(name = "Address1")
-    private String address1;
-    @Column(name = "Address2")
-    private String address2;
-    @Column(name = "State")
-    private String state;
-    @Column(name = "City")
-    private String city;
-    @Column(name = "Zip")
-    private String zip;
+    @Embedded
+    private Address address;
 
     public User() {
     }
 
-    public User(String firstName, String lastName, String email, String password, String role, String address1, String address2, String state, String city, String zip) {
+    public User(String firstName, String lastName, String email, String password, String role, Address address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.role = role;
-        this.address1 = address1;
-        this.address2 = address2;
-        this.state = state;
-        this.city = city;
-        this.zip = zip;
+        this.address = address;
     }
 
     public int getId() {
@@ -99,43 +83,11 @@ public class User {
         this.role = role;
     }
 
-    public String getAddress1() {
-        return address1;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setAddress1(String address1) {
-        this.address1 = address1;
-    }
-
-    public String getAddress2() {
-        return address2;
-    }
-
-    public void setAddress2(String address2) {
-        this.address2 = address2;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getZip() {
-        return zip;
-    }
-
-    public void setZip(String zip) {
-        this.zip = zip;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }

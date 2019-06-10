@@ -1,5 +1,6 @@
 package com.mbasic.servlet;
 
+import com.mbasic.dal.model.LoginLog;
 import com.mbasic.dal.model.User;
 import com.mbasic.dal.service.model.ModelService;
 import com.mbasic.dal.service.user.UserService;
@@ -13,15 +14,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Date;
 
-/*This servlet handles login's, GET requests get get login page,
+/*This servlet handles login's.
 * POST requests check if posted user is in database.
-* If true redirect to /store servlet*/
+* If true add user to session, save login time and redirect to /store servlet*/
 @WebServlet(name = "LoginServlet", urlPatterns = {"/login"})
 public class LoginServlet extends HttpServlet {
 
     @Inject
     private UserService userService;
+
+    @Inject
+    private ModelService modelService;
 
     //TODO: checkbox remember me ne radi ništa
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,7 +35,8 @@ public class LoginServlet extends HttpServlet {
         if (user != null){
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
-
+            LoginLog loginLog = new LoginLog(user.getEmail(), new Date(), request.getRemoteAddr());
+            modelService.add(loginLog);
             response.sendRedirect("/WebShop/store");
         } else {
             request.setAttribute("badLogin", "Wrong credentials.");

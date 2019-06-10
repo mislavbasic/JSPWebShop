@@ -63,26 +63,26 @@
 
                 <div class="form-group col-md-12">
                     <label for="address1">Address</label>
-                    <input type="text" class="form-control" id="address1" name="address1" value="${sessionScope.user.getAddress1()}" readonly>
+                    <input type="text" class="form-control" id="address1" name="address1" value="${sessionScope.user.getAddress().getAddress1()}" readonly>
                 </div>
 
                 <div class="form-group col-md-12">
                     <label for="address2">Address 2</label>
-                    <input type="text" class="form-control" id="address2" name="address2" value="${sessionScope.user.getAddress2()}" readonly>
+                    <input type="text" class="form-control" id="address2" name="address2" value="${sessionScope.user.getAddress().getAddress2()}" readonly>
                 </div>
                 <!-- TODO: validacija forme...-->
                 <div class="form-group">
                     <div class="form-group col-md-5">
                         <label for="state">State</label>
-                        <input type="text" class="form-control" id="state" name="state" value="${sessionScope.user.getState()}" readonly>
+                        <input type="text" class="form-control" id="state" name="state" value="${sessionScope.user.getAddress().getState()}" readonly>
                     </div>
                     <div class="form-group col-md-5">
                         <label for="city">City</label>
-                        <input type="text" class="form-control" id="city" name="city" value="${sessionScope.user.getCity()}" readonly>
+                        <input type="text" class="form-control" id="city" name="city" value="${sessionScope.user.getAddress().getCity()}" readonly>
                     </div>
                     <div class="form-group col-md-2">
                         <label for="zip">Zip</label>
-                        <input type="text" class="form-control" id="zip" name="zip" value="${sessionScope.user.getZip()}" readonly>
+                        <input type="text" class="form-control" id="zip" name="zip" value="${sessionScope.user.getAddress().getZip()}" readonly>
                     </div>
                 </div>
         </div>

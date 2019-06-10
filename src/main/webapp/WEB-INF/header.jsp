@@ -42,14 +42,14 @@
                     <div class="header-ctn">
 
                         <c:if test="${sessionScope.user != null && sessionScope.user.getRole() == 'ADMIN'}">
-                            <!-- My Account -->
+                            <!-- Admin -->
                             <div>
-                            <a href="account">
+                            <a href="admin">
                             <i class="fa fa-trash-o"></i>
                             <span>Admin</span>
                             </a>
                             </div>
-                            <!-- /My Account -->
+                            <!-- /Admin -->
                         </c:if>
 
                         <c:if test="${sessionScope.user != null}">

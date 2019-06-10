@@ -1,6 +1,4 @@
-package com.mbasic.servlet;
-
-import com.mbasic.dal.model.User;
+package com.mbasic.filter;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -9,8 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(filterName = "AdminFilter", urlPatterns = {"/addItem"})
-public class AdminFilter implements Filter {
+@WebFilter(filterName = "LoggedInFilter", urlPatterns = {"/account"})
+public class LoggedInFilter implements Filter {
     public void destroy() {
     }
 
@@ -20,20 +18,13 @@ public class AdminFilter implements Filter {
         HttpSession session = request.getSession(false);
 
         boolean loggedIn = session != null && session.getAttribute("user") != null;
+
         if (loggedIn) {
-            User user = (User) session.getAttribute("user");
-            boolean isAdmin = user.getRole().equals("ADMIN");
-            if (isAdmin) {
-                chain.doFilter(req, resp);
-            } else {
-                response.sendError(401);
-            }
+            chain.doFilter(req, resp);
         } else {
-            response.sendError(403);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/login.jsp");
+            dispatcher.forward(request, response);
         }
-
-
-
     }
 
     public void init(FilterConfig config) throws ServletException {
