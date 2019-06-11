@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -45,21 +46,11 @@
             <!-- Product main img -->
             <div class="col-md-5 col-md-push-2">
                 <div id="product-main-img">
-                    <div class="product-preview">
-                        <img src="${pageContext.request.contextPath}/img/product01.png" alt="">
-                    </div>
-
-                    <div class="product-preview">
-                        <img src="${pageContext.request.contextPath}/img/product03.png" alt="">
-                    </div>
-
-                    <div class="product-preview">
-                        <img src="${pageContext.request.contextPath}/img/product06.png" alt="">
-                    </div>
-
-                    <div class="product-preview">
-                        <img src="${pageContext.request.contextPath}/img/product08.png" alt="">
-                    </div>
+                    <c:forEach items="${item.imgNames}" var="img">
+                        <div class="product-preview">
+                            <img src="${pageContext.request.contextPath}/img/${img}" alt="">
+                        </div>
+                    </c:forEach>
                 </div>
             </div>
             <!-- /Product main img -->
@@ -67,21 +58,11 @@
             <!-- Product thumb imgs -->
             <div class="col-md-2  col-md-pull-5">
                 <div id="product-imgs">
-                    <div class="product-preview">
-                        <img src="${pageContext.request.contextPath}/img/product01.png" alt="">
-                    </div>
-
-                    <div class="product-preview">
-                        <img src="${pageContext.request.contextPath}/img/product03.png" alt="">
-                    </div>
-
-                    <div class="product-preview">
-                        <img src="${pageContext.request.contextPath}/img/product06.png" alt="">
-                    </div>
-
-                    <div class="product-preview">
-                        <img src="${pageContext.request.contextPath}/img/product08.png" alt="">
-                    </div>
+                    <c:forEach items="${item.imgNames}" var="img">
+                        <div class="product-preview">
+                            <img src="${pageContext.request.contextPath}/img/${img}" alt="">
+                        </div>
+                    </c:forEach>
                 </div>
             </div>
             <!-- /Product thumb imgs -->
@@ -92,7 +73,6 @@
                     <h2 class="product-name">${item.name}</h2>
                     <div>
                         <h3 class="product-price">$${item.price}</h3>
-                        <span class="product-available">In Stock</span>
                     </div>
                     <p>${item.description}</p>
 
@@ -112,14 +92,6 @@
                         </div>
 
                     </form>
-
-                    <ul class="product-links">
-                        <li>Share:</li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#"><i class="fa fa-envelope"></i></a></li>
-                    </ul>
 
                 </div>
             </div>

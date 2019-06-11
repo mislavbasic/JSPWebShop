@@ -27,7 +27,7 @@ public class ItemServiceImpl implements ItemService {
             itemList = findByCategory.getResultList();
             return itemList;
         } catch (Exception e) {
-            LOGGER.log(Level.WARNING, e.toString(), e);
+            LOGGER.log(Level.SEVERE, e.toString(), e);
         }
         return null;
     }
@@ -43,7 +43,7 @@ public class ItemServiceImpl implements ItemService {
             item = (Item) findById.getSingleResult();
             return item;
         } catch (Exception e) {
-            LOGGER.log(Level.WARNING, e.toString(), e);
+            LOGGER.log(Level.SEVERE, e.toString(), e);
         }
         return null;
     }
@@ -59,7 +59,7 @@ public class ItemServiceImpl implements ItemService {
             itemList = findAll.getResultList();
             return itemList;
         } catch (Exception e) {
-            LOGGER.log(Level.WARNING, e.toString(), e);
+            LOGGER.log(Level.SEVERE, e.toString(), e);
         }
         return null;
     }

@@ -22,7 +22,7 @@ public class ModelServiceImpl implements ModelService {
             em.getTransaction().commit();
             return true;
         } catch (Exception e) {
-            LOGGER.log(Level.WARNING, e.toString(), e);
+            LOGGER.log(Level.SEVERE, e.toString(), e);
         }
         return false;
     }

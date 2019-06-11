@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
             Query login = em.createNativeQuery("SELECT * FROM Users WHERE Email = '" + email + "' AND Password = '" + password + "'", User.class);
             return (User)login.getSingleResult();
         } catch (Exception e) {
-            LOGGER.log(Level.WARNING, e.toString(), e);
+            LOGGER.log(Level.SEVERE, e.toString(), e);
         }
         return null;
     }
@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserService {
             Query getLog = em.createNativeQuery("SELECT * FROM Login", LoginLog.class);
             return getLog.getResultList();
         } catch (Exception e) {
-            LOGGER.log(Level.WARNING, e.toString(), e);
+            LOGGER.log(Level.SEVERE, e.toString(), e);
         }
         return null;
     }

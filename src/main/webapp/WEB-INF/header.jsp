@@ -19,7 +19,7 @@
                 <!-- LOGO -->
                 <div class="col-md-3">
                     <div class="header-logo">
-                        <a href="store" class="logo">
+                        <a href="${pageContext.request.contextPath}/store" class="logo">
                             <img src="${pageContext.request.contextPath}/img/logo.png" alt="">
                         </a>
                     </div>
@@ -44,7 +44,7 @@
                         <c:if test="${sessionScope.user != null && sessionScope.user.getRole() == 'ADMIN'}">
                             <!-- Admin -->
                             <div>
-                            <a href="admin">
+                            <a href="${pageContext.request.contextPath}/admin">
                             <i class="fa fa-trash-o"></i>
                             <span>Admin</span>
                             </a>
@@ -55,7 +55,7 @@
                         <c:if test="${sessionScope.user != null}">
                             <!-- My Account -->
                             <div>
-                                <a href="account">
+                                <a href="${pageContext.request.contextPath}/account">
                                     <i class="fa fa-user-o"></i>
                                     <span>My Account</span>
                                 </a>
@@ -64,7 +64,7 @@
 
                         <!-- Cart -->
                         <div>
-                            <a href="cart">
+                            <a href="${pageContext.request.contextPath}/cart">
                                 <i class="fa fa-shopping-cart"></i>
                                 <span>My Cart</span>
                                 <div class="qty">3</div>
@@ -74,7 +74,7 @@
 
                             <!-- Logout -->
                             <div>
-                                <a href="logout">
+                                <a href="${pageContext.request.contextPath}/logout">
                                     <i class="fa fa-sign-out"></i>
                                     <span>Sign Out</span>
                                 </a>
@@ -86,7 +86,7 @@
                         <c:if test="${sessionScope.user == null}">
                             <!-- Register -->
                             <div>
-                                <a href="register">
+                                <a href="${pageContext.request.contextPath}/register">
                                     <i class="fa fa-user-plus"></i>
                                     <span>Register</span>
                                 </a>
@@ -95,7 +95,7 @@
 
                             <!-- Cart -->
                             <div>
-                                <a href="cart">
+                                <a href="${pageContext.request.contextPath}/cart">
                                     <i class="fa fa-shopping-cart"></i>
                                     <span>My Cart</span>
                                     <div class="qty">3</div>
@@ -105,7 +105,7 @@
 
                             <!-- Login -->
                             <div>
-                                <a href="login">
+                                <a href="${pageContext.request.contextPath}/login">
                                     <i class="fa fa-sign-in"></i>
                                     <span>Sign In</span>
                                 </a>

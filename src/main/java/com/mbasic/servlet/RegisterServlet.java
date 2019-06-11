@@ -1,6 +1,7 @@
 package com.mbasic.servlet;
 
 import com.mbasic.dal.model.Address;
+import com.mbasic.dal.model.LoginLog;
 import com.mbasic.dal.model.User;
 import com.mbasic.dal.service.model.ModelService;
 
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Date;
 
 @WebServlet(name = "RegisterServlet", urlPatterns = {"/register"})
 public class RegisterServlet extends HttpServlet {
@@ -27,11 +29,12 @@ public class RegisterServlet extends HttpServlet {
         if (modelService.add(user)){
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
+            LoginLog loginLog = new LoginLog(user.getEmail(), new Date(), request.getRemoteAddr());
+            modelService.add(loginLog);
             response.sendRedirect("/WebShop/store");
         } else {
             doGet(request, response);
         }
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

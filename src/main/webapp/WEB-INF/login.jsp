@@ -48,7 +48,7 @@
                     <input type="checkbox" class="form-check-input" id="chbRemember">
                     <label class="form-check-label" for="chbRemember">Remember me</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Sign In</button>
+                <button type="submit" class="btn" style="background-color: #D10024; color: #FFFFFF;">Sign In</button>
             </form>
             <div>
                 <p style="color: red;">${badLogin}</p>

@@ -155,7 +155,7 @@
                 </div>
                 <!-- /aside Widget -->
                 <div class="btn-group-lg pull-right">
-                    <input class="btn btn-danger btn" type="submit" value="Sort">
+                    <input class="btn" type="submit" value="Sort" style="background-color: #D10024; color: #FFFFFF">
                 </div>
             </form>
             <!-- /ASIDE -->
@@ -190,7 +190,7 @@
                         <div class="col-md-4 col-xs-6">
                             <div class="product">
                                 <a class="product-img" href="product?id=${item.id}">
-                                    <img src="${pageContext.request.contextPath}/img/product01.png" alt="">
+                                    <img src="${pageContext.request.contextPath}/img/${item.imgNames[0]}" alt="">
                                 </a>
                                 <div class="product-body">
                                     <h3 class="product-name">${item.name}</h3>

@@ -1,6 +1,9 @@
 package com.mbasic.dal.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Entity
 @Table(name = "Items")
@@ -18,8 +21,19 @@ public class Item {
     private String description;
     @Column(name = "Category")
     private String category;
+    @Column(name="Imgs")
+    @Convert(converter = StringListConverter.class)
+    private List<String> imgNames;
 
     public Item() {
+    }
+
+    public Item(String name, Double price, String description, String category, List<String> imgNames) {
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.category = category;
+        this.imgNames = imgNames;
     }
 
     public int getId() {
@@ -61,4 +75,27 @@ public class Item {
     public void setCategory(String category) {
         this.category = category;
     }
+
+    public List<String> getImgNames() {
+        return imgNames;
+    }
+
+    public void setImgNames(List<String> imgNames) {
+        this.imgNames = imgNames;
+    }
+}
+
+@Converter
+class StringListConverter implements AttributeConverter<List<String>, String> {
+
+    @Override
+    public String convertToDatabaseColumn(List<String> list) {
+        return String.join(",", list);
+    }
+
+    @Override
+    public List<String> convertToEntityAttribute(String joined) {
+        return new ArrayList<>(Arrays.asList(joined.split(",")));
+    }
+
 }
