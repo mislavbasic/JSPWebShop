@@ -18,8 +18,6 @@ import java.util.Date;
 
 @WebServlet(name = "RegisterServlet", urlPatterns = {"/register"})
 public class RegisterServlet extends HttpServlet {
-//TODO: attribute validation
-//TODO: ne sprema rvacke znakove u bazu
     @Inject
     private ModelService modelService;
 

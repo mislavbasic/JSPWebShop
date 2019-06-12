@@ -12,21 +12,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Moj WebShop - Cart</title>
-
-    <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
-
-    <!-- Bootstrap -->
-    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
-
-    <!-- Slick -->
-    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/slick.css"/>
-    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/slick-theme.css"/>
-
-    <!-- Font Awesome Icon -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.min.css">
-
-    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>
 </head>
 <body>
@@ -55,7 +43,9 @@
                                 <span class="qty-down">-</span>
                             </div>
                         </div>
-                        <div><button class="btn btn-danger">X</button></div>
+                        <div>
+                            <button class="btn btn-danger">X</button>
+                        </div>
                         <div>${item.price}</div>
                     </div>
                 </c:forEach>
@@ -94,14 +84,6 @@
         </div>
     </div>
 </div>
-
-
-
-<%@include file="footer.jsp"%>
-
-<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/slick.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/main.js"></script>
+<%@include file="footer.jsp" %>
 </body>
 </html>

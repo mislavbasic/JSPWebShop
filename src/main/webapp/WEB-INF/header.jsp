@@ -6,16 +6,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
-<!-- HEADER -->
 <header>
-
-    <!-- MAIN HEADER -->
     <div id="header">
-        <!-- container -->
         <div class="container">
-            <!-- row -->
             <div class="row">
+
                 <!-- LOGO -->
                 <div class="col-md-3">
                     <div class="header-logo">
@@ -26,7 +23,7 @@
                 </div>
                 <!-- /LOGO -->
 
-                <!-- SEARCH BAR -->
+                <!-- SEARCH -->
                 <div class="col-md-5">
                     <div class="header-search">
                         <form>
@@ -35,24 +32,24 @@
                         </form>
                     </div>
                 </div>
-                <!-- /SEARCH BAR -->
+                <!-- /SEARCH -->
 
-                <!-- ACCOUNT -->
                 <div class="col-md-4">
                     <div class="header-ctn">
 
                         <c:if test="${sessionScope.user != null && sessionScope.user.getRole() == 'ADMIN'}">
                             <!-- Admin -->
                             <div>
-                            <a href="${pageContext.request.contextPath}/admin">
-                            <i class="fa fa-trash-o"></i>
-                            <span>Admin</span>
-                            </a>
+                                <a href="${pageContext.request.contextPath}/admin">
+                                    <i class="fa fa-trash-o"></i>
+                                    <span>Admin</span>
+                                </a>
                             </div>
                             <!-- /Admin -->
                         </c:if>
 
-                        <c:if test="${sessionScope.user != null}">
+                        <!-- LoggedIn -->
+                        <c:if test="${sessionScope.user != null}"><%--@elvariable id="cart" type="java.util.List"--%>
                             <!-- My Account -->
                             <div>
                                 <a href="${pageContext.request.contextPath}/account">
@@ -62,15 +59,15 @@
                             </div>
                             <!-- /My Account -->
 
-                        <!-- Cart -->
-                        <div>
-                            <a href="${pageContext.request.contextPath}/cart">
-                                <i class="fa fa-shopping-cart"></i>
-                                <span>My Cart</span>
-                                <div class="qty">3</div>
-                            </a>
-                        </div>
-                        <!-- /Cart -->
+                            <!-- Cart -->
+                            <div>
+                                <a href="${pageContext.request.contextPath}/cart">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <span>My Cart</span>
+                                    <div class="qty">${fn:length(cart)}</div>
+                                </a>
+                            </div>
+                            <!-- /Cart -->
 
                             <!-- Logout -->
                             <div>
@@ -81,9 +78,10 @@
                             </div>
                             <!-- /Logout -->
                         </c:if>
+                        <!-- /LoggedIn -->
 
-
-                        <c:if test="${sessionScope.user == null}">
+                        <!-- Anonymous -->
+                        <c:if test="${sessionScope.user == null}"><%--@elvariable id="cart" type="java.util.List"--%>
                             <!-- Register -->
                             <div>
                                 <a href="${pageContext.request.contextPath}/register">
@@ -98,7 +96,7 @@
                                 <a href="${pageContext.request.contextPath}/cart">
                                     <i class="fa fa-shopping-cart"></i>
                                     <span>My Cart</span>
-                                    <div class="qty">3</div>
+                                    <div class="qty">${fn:length(cart)}</div>
                                 </a>
                             </div>
                             <!-- /Cart -->
@@ -112,14 +110,10 @@
                             </div>
                             <!-- /Login -->
                         </c:if>
+                        <!-- /Anonymous -->
                     </div>
                 </div>
-                <!-- /ACCOUNT -->
             </div>
-            <!-- row -->
         </div>
-        <!-- container -->
     </div>
-    <!-- /MAIN HEADER -->
 </header>
-<!-- /HEADER -->

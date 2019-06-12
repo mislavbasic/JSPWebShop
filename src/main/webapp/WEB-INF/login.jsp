@@ -1,3 +1,4 @@
+<%--@elvariable id="badLogin" type="java.lang.String"--%>
 <%--
   Created by IntelliJ IDEA.
   User: Mislav
@@ -11,19 +12,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Moj WebShop - Login</title>
-
-    <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
-
-    <!-- Bootstrap -->
-    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
-
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.min.css">
-
-    <!-- Custom CSS -->
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>
-
 </head>
 <body>
 <jsp:include page="header.jsp">
@@ -37,11 +29,13 @@
             <form action="login" method="POST">
                 <div class="form-group">
                     <label for="InputEmail">Email address</label>
-                    <input type="email" class="form-control" id="InputEmail" placeholder="Enter email" name="eMail" required>
+                    <input type="email" class="form-control" id="InputEmail" placeholder="Enter email" name="eMail"
+                           required>
                 </div>
                 <div class="form-group">
                     <label for="InputPassword">Password</label>
-                    <input type="password" class="form-control" id="InputPassword" placeholder="Password" name="password" required>
+                    <input type="password" class="form-control" id="InputPassword" placeholder="Password"
+                           name="password" required>
                 </div>
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="chbRemember">
@@ -56,6 +50,6 @@
     </div>
 </div>
 
-<%@include file="footer.jsp"%>
+<%@include file="footer.jsp" %>
 </body>
 </html>

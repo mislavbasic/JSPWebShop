@@ -30,6 +30,7 @@ public class AddItemServlet extends HttpServlet {
     private static final String SAVE_DIR = "C:/Program Files/Apache Software Foundation/Tomcat 8.5/webapps/WebShop/img/";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         List<String> imgNames = saveImg(request);
         Item item = createItemObject(request, imgNames);
 

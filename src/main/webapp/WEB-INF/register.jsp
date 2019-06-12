@@ -11,17 +11,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Moj WebShop - Login</title>
-
-    <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
-
-    <!-- Bootstrap -->
-    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
-
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.min.css">
-
-    <!-- Custom CSS -->
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>
 
 </head>
@@ -38,11 +30,13 @@
                 <div class="form-group">
                     <div class="form-group col-md-6">
                         <label for="firstName">First name</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="First name" name="firstName" required>
+                        <input type="text" class="form-control" id="firstName" placeholder="First name" name="firstName"
+                               required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="lastName">Last name</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="Last name" name="lastName" required>
+                        <input type="text" class="form-control" id="lastName" placeholder="Last name" name="lastName"
+                               required>
                     </div>
                 </div>
 
@@ -53,18 +47,21 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
+                        <input type="password" class="form-control" id="password" placeholder="Password" name="password"
+                               required>
                     </div>
                 </div>
 
                 <div class="form-group col-md-12">
                     <label for="address1">Address</label>
-                    <input type="text" class="form-control" id="address1" placeholder="1234 Main St" name="address1" required>
+                    <input type="text" class="form-control" id="address1" placeholder="1234 Main St" name="address1"
+                           required>
                 </div>
 
                 <div class="form-group col-md-12">
                     <label for="address2">Address 2</label>
-                    <input type="text" class="form-control" id="address2" placeholder="Apartment, studio, or floor" name="address2" required>
+                    <input type="text" class="form-control" id="address2" placeholder="Apartment, studio, or floor"
+                           name="address2" required>
                 </div>
 
                 <div class="form-group">
@@ -82,12 +79,13 @@
                     </div>
                 </div>
                 <div class="col-md-5"></div>
-                <input type="submit" value="Register" class="btn" style="margin-top: 3%; background-color: #D10024; color: #FFFFFF">
+                <input type="submit" value="Register" class="btn"
+                       style="margin-top: 3%; background-color: #D10024; color: #FFFFFF">
             </form>
         </div>
     </div>
 </div>
 
-<%@include file="footer.jsp"%>
+<%@include file="footer.jsp" %>
 </body>
 </html>
