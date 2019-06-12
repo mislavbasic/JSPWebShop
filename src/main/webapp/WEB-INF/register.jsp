@@ -5,7 +5,7 @@
   Time: 5:40 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -38,47 +38,47 @@
                 <div class="form-group">
                     <div class="form-group col-md-6">
                         <label for="firstName">First name</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="First name" name="firstName">
+                        <input type="text" class="form-control" id="firstName" placeholder="First name" name="firstName" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="lastName">Last name</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="Last name" name="lastName">
+                        <input type="text" class="form-control" id="lastName" placeholder="Last name" name="lastName" required>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="form-group col-md-6">
                         <label for="eMail">Email</label>
-                        <input type="email" class="form-control" id="eMail" placeholder="Email" name="eMail">
+                        <input type="email" class="form-control" id="eMail" placeholder="Email" name="eMail" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+                        <input type="password" class="form-control" id="password" placeholder="Password" name="password" required>
                     </div>
                 </div>
 
                 <div class="form-group col-md-12">
                     <label for="address1">Address</label>
-                    <input type="text" class="form-control" id="address1" placeholder="1234 Main St" name="address1">
+                    <input type="text" class="form-control" id="address1" placeholder="1234 Main St" name="address1" required>
                 </div>
 
                 <div class="form-group col-md-12">
                     <label for="address2">Address 2</label>
-                    <input type="text" class="form-control" id="address2" placeholder="Apartment, studio, or floor" name="address2">
+                    <input type="text" class="form-control" id="address2" placeholder="Apartment, studio, or floor" name="address2" required>
                 </div>
-                <!-- TODO: validacija forme...-->
+
                 <div class="form-group">
                     <div class="form-group col-md-5">
                         <label for="state">State</label>
-                        <input type="text" class="form-control" id="state" placeholder="Croatia" name="state">
+                        <input type="text" class="form-control" id="state" placeholder="Croatia" name="state" required>
                     </div>
                     <div class="form-group col-md-5">
                         <label for="city">City</label>
-                        <input type="text" class="form-control" id="city" placeholder="Zagreb" name="city">
+                        <input type="text" class="form-control" id="city" placeholder="Zagreb" name="city" required>
                     </div>
                     <div class="form-group col-md-2">
                         <label for="zip">Zip</label>
-                        <input type="text" class="form-control" id="zip" placeholder="10000" name="zip">
+                        <input type="text" class="form-control" id="zip" placeholder="10000" name="zip" required>
                     </div>
                 </div>
                 <div class="col-md-5"></div>

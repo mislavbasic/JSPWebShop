@@ -5,7 +5,7 @@
   Time: 10:15 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -38,7 +38,6 @@
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10" style="margin-top: 5%; margin-bottom: 10%;">
-            <!-- <form action="register" method="POST"> -->
                 <div class="form-group">
                     <div class="form-group col-md-6">
                         <label for="firstName">First name</label>
@@ -70,7 +69,7 @@
                     <label for="address2">Address 2</label>
                     <input type="text" class="form-control" id="address2" name="address2" value="${sessionScope.user.getAddress().getAddress2()}" readonly>
                 </div>
-                <!-- TODO: validacija forme...-->
+
                 <div class="form-group">
                     <div class="form-group col-md-5">
                         <label for="state">State</label>

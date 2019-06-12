@@ -1,6 +1,5 @@
 package com.mbasic.servlet;
 
-import com.mbasic.dal.model.Item;
 import com.mbasic.dal.service.item.ItemService;
 
 import javax.inject.Inject;
@@ -17,10 +16,6 @@ public class ProductServlet extends HttpServlet {
 
     @Inject
     private ItemService itemService;
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));

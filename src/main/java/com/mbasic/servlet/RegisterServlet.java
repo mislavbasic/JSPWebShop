@@ -24,6 +24,7 @@ public class RegisterServlet extends HttpServlet {
     private ModelService modelService;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         User user = createUserObject(request);
 
         if (modelService.add(user)){

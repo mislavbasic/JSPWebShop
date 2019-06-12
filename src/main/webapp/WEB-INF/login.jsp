@@ -5,8 +5,7 @@
   Time: 10:19 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%-- TODO: dodati da se ne može poslati prazna forma --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -38,11 +37,11 @@
             <form action="login" method="POST">
                 <div class="form-group">
                     <label for="InputEmail">Email address</label>
-                    <input type="email" class="form-control" id="InputEmail" placeholder="Enter email" name="eMail">
+                    <input type="email" class="form-control" id="InputEmail" placeholder="Enter email" name="eMail" required>
                 </div>
                 <div class="form-group">
                     <label for="InputPassword">Password</label>
-                    <input type="password" class="form-control" id="InputPassword" placeholder="Password" name="password">
+                    <input type="password" class="form-control" id="InputPassword" placeholder="Password" name="password" required>
                 </div>
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="chbRemember">

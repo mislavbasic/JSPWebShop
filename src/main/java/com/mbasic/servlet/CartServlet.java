@@ -23,12 +23,14 @@ public class CartServlet extends HttpServlet {
 
     private List<Item> cartList = new ArrayList<>();
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int itemId = Integer.parseInt(request.getParameter("itemId"));
         Item item = itemService.findById(itemId);
         cartList.add(item);
         HttpSession session = request.getSession();
         session.setAttribute("cart", cartList);
+        String referer = request.getHeader("Referer");
+        response.sendRedirect(referer);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

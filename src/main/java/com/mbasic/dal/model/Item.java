@@ -16,9 +16,11 @@ public class Item {
     @Column(name = "Name")
     private String name;
     @Column(name = "Price")
-    private Double price;
+    private String price;
     @Column(name = "Description")
     private String description;
+    @Column(name = "Details")
+    private String details;
     @Column(name = "Category")
     private String category;
     @Column(name="Imgs")
@@ -28,10 +30,11 @@ public class Item {
     public Item() {
     }
 
-    public Item(String name, Double price, String description, String category, List<String> imgNames) {
+    public Item(String name, String price, String description, String details, String category, List<String> imgNames) {
         this.name = name;
         this.price = price;
         this.description = description;
+        this.details = details;
         this.category = category;
         this.imgNames = imgNames;
     }
@@ -40,48 +43,28 @@ public class Item {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Double getPrice() {
+    public String getPrice() {
         return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public String getDetails() {
+        return details;
     }
 
     public String getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
     public List<String> getImgNames() {
         return imgNames;
-    }
-
-    public void setImgNames(List<String> imgNames) {
-        this.imgNames = imgNames;
     }
 }
 

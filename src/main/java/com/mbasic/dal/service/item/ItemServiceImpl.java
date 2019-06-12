@@ -25,6 +25,8 @@ public class ItemServiceImpl implements ItemService {
             //TODO: ne mogu gledat ni ovo
             Query findByCategory = em.createNativeQuery("SELECT * FROM Items WHERE Category = " + category, Item.class);
             itemList = findByCategory.getResultList();
+            em.getTransaction().commit();
+            em.close();
             return itemList;
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, e.toString(), e);
@@ -41,6 +43,8 @@ public class ItemServiceImpl implements ItemService {
             em.getTransaction().begin();
             Query findById = em.createNativeQuery("SELECT * FROM Items WHERE IDItem = " + id, Item.class);
             item = (Item) findById.getSingleResult();
+            em.getTransaction().commit();
+            em.close();
             return item;
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, e.toString(), e);
@@ -57,6 +61,8 @@ public class ItemServiceImpl implements ItemService {
             em.getTransaction().begin();
             Query findAll = em.createNativeQuery("SELECT * FROM Items", Item.class);
             itemList = findAll.getResultList();
+            em.getTransaction().commit();
+            em.close();
             return itemList;
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, e.toString(), e);

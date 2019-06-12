@@ -1,3 +1,4 @@
+<%--@elvariable id="item" type="com.mbasic.dal.model.Item"--%>
 <%--
   Created by IntelliJ IDEA.
   User: Mislav
@@ -5,7 +6,7 @@
   Time: 2:52 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -86,11 +87,7 @@
                             </div>
                         </div>
                         <input type="hidden" value="${item.id}" name="itemId">
-                        <div class="add-to-cart-btn">
-                            <i class="fa fa-shopping-cart"></i>
-                            <input type="submit" value="add to cart">
-                        </div>
-
+                        <button class="add-to-cart-btn" type="submit"><i class="fa fa-shopping-cart"></i> add to cart</button>
                     </form>
 
                 </div>
@@ -123,7 +120,7 @@
                         <div id="tab2" class="tab-pane fade in">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p>DETALJI!</p>
+                                    <p>${item.details}</p>
                                 </div>
                             </div>
                         </div>

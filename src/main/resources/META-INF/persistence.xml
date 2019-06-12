@@ -5,11 +5,12 @@
         <properties>
             <!-- Configuring The Database Connection Details -->
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/webshop?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
+
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/webshop?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=UTC&amp;autoReconnect=true&amp;createDatabaseIfNotExist=true"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value=""/>
 
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
             <property name="hibernate.show_sql" value="true"/>
 
             <property name="hibernate.hbm2ddl.auto" value="update"/>

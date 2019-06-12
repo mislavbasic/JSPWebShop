@@ -20,6 +20,7 @@ public class ModelServiceImpl implements ModelService {
             em.getTransaction().begin();
             em.persist(o);
             em.getTransaction().commit();
+            em.close();
             return true;
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, e.toString(), e);

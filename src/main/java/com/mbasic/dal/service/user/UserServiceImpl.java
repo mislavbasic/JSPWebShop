@@ -20,12 +20,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User login(String email, String password) {
+        User user;
         EntityManager em;
         try {
             em = emf.createEntityManager();
             em.getTransaction().begin();
             Query login = em.createNativeQuery("SELECT * FROM Users WHERE Email = '" + email + "' AND Password = '" + password + "'", User.class);
-            return (User)login.getSingleResult();
+            user = (User)login.getSingleResult();
+            em.getTransaction().commit();
+            em.close();
+            return user;
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, e.toString(), e);
         }
@@ -40,12 +44,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<LoginLog> findAllLog() {
+        List<LoginLog> loginLogList;
         EntityManager em;
         try {
             em = emf.createEntityManager();
             em.getTransaction().begin();
             Query getLog = em.createNativeQuery("SELECT * FROM Login", LoginLog.class);
-            return getLog.getResultList();
+            loginLogList = getLog.getResultList();
+            em.getTransaction().commit();
+            em.close();
+            return loginLogList;
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, e.toString(), e);
         }

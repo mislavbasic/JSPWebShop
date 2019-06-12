@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -58,6 +58,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    <%--@elvariable id="logList" type="java.util.List"--%>
                                     <c:forEach items="${logList}" var="log">
                                         <tr>
                                             <td>${log.getUserEmail()}</td>
@@ -77,38 +78,45 @@
                     <div class="row">
                         <div class="col-md-12">
                             <form action="${pageContext.request.contextPath}/admin/addItem" method="POST" enctype="multipart/form-data">
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-12">
                                     <label for="productName">Product name</label>
-                                    <input type="text" class="form-control" id="productName" placeholder="Product name" name="productName">
+                                    <input type="text" class="form-control" id="productName" placeholder="Product name" name="productName" required>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="productCategory">Category</label>
+                                    <select class="form-control" id="productCategory" name="productCategory" required>
+                                        <option value="laptop">Laptop</option>
+                                        <option value="smartphone">Smartphone</option>
+                                        <option value="camera">Camera</option>
+                                        <option value="accessory">Accessory</option>
+                                    </select>
                                 </div>
 
                                 <div class="form-group col-md-6">
                                     <label for="productPrice">Price</label>
-                                    <input type="text" class="form-control" id="productPrice" placeholder="Price" name="productPrice">
+                                    <input type="number" step="0.01" min="0" class="form-control" id="productPrice" placeholder="Price" name="productPrice" required>
                                 </div>
 
                                 <div class="form-group col-md-12">
                                     <label for="productDescription">Description</label>
-                                    <textarea class="form-control" id="productDescription" name="productDescription"></textarea>
+                                    <textarea class="form-control" id="productDescription" name="productDescription" required></textarea>
                                 </div>
 
                                 <div class="form-group col-md-12">
                                     <label for="productDetails">Details</label>
-                                    <textarea class="form-control" id="productDetails" name="productDetails"></textarea>
+                                    <textarea class="form-control" id="productDetails" name="productDetails" required></textarea>
                                 </div>
 
                                 <div class="form-group col-md-6">
                                     <label for="imgProduct">Product image</label>
-                                    <input type="file" id="imgProduct" name="imgProduct" value="Upload images..." multiple/>
+                                    <input type="file" id="imgProduct" name="imgProduct" value="Upload images..." multiple required/>
                                 </div>
 
                                 <div class="form-group col-md-6">
                                     <input class="btn pull-right" type="submit" value="Submit" style="background-color: #D10024; color: #FFFFFF; margin-top: 2%;"/>
                                 </div>
                             </form>
-                            <div>
-                                <p style="color: red;">${info}</p>
-                            </div>
                         </div>
                     </div>
                 </div>
