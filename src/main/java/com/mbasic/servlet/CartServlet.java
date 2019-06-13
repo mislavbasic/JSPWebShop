@@ -1,6 +1,6 @@
 package com.mbasic.servlet;
 
-import com.mbasic.dal.model.Item;
+import com.mbasic.dal.model.item.Item;
 import com.mbasic.dal.service.item.ItemService;
 
 import javax.inject.Inject;
@@ -21,14 +21,19 @@ public class CartServlet extends HttpServlet {
     @Inject
     private ItemService itemService;
 
-    private List<Item> cartList = new ArrayList<>();
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int itemId = Integer.parseInt(request.getParameter("itemId"));
         Item item = itemService.findById(itemId);
-        cartList.add(item);
         HttpSession session = request.getSession();
-        session.setAttribute("cart", cartList);
+        if (session.getAttribute("cart") == null) {
+            List<Item> cart = new ArrayList<>();
+            cart.add(item);
+            session.setAttribute("cart", cart);
+        } else {
+            List<Item> cart = (List<Item>) session.getAttribute("cart");
+            cart.add(item);
+            session.setAttribute("cart", cart);
+        }
         String referer = request.getHeader("Referer");
         response.sendRedirect(referer);
     }

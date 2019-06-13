@@ -14,16 +14,17 @@ public class ModelServiceImpl implements ModelService {
 
     @Override
     public boolean add(Object o) {
-        EntityManager em;
+        EntityManager em = null;
         try {
             em = emf.createEntityManager();
             em.getTransaction().begin();
             em.persist(o);
             em.getTransaction().commit();
-            em.close();
             return true;
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, e.toString(), e);
+        } finally {
+            if (em != null) em.close();
         }
         return false;
     }

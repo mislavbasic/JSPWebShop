@@ -1,17 +1,16 @@
 package com.mbasic.dal.service.user;
 
-import com.mbasic.dal.model.LoginLog;
-import com.mbasic.dal.model.User;
+import com.mbasic.dal.model.log.LoginLog;
+import com.mbasic.dal.model.user.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-//Returns User object/s from database
+//Returns user object/s from database
 //Handles login requests
 public class UserServiceImpl implements UserService {
 
@@ -20,18 +19,20 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User login(String email, String password) {
-        User user;
-        EntityManager em;
+        EntityManager em = null;
         try {
             em = emf.createEntityManager();
             em.getTransaction().begin();
-            Query login = em.createNativeQuery("SELECT * FROM Users WHERE Email = '" + email + "' AND Password = '" + password + "'", User.class);
-            user = (User)login.getSingleResult();
+            User user = (User) em.createNativeQuery("SELECT * FROM Users WHERE Email = :email AND Password = :password", User.class)
+                    .setParameter("email", email)
+                    .setParameter("password", password)
+                    .getSingleResult();
             em.getTransaction().commit();
-            em.close();
             return user;
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, e.toString(), e);
+        } finally {
+            if (em != null) em.close();
         }
         return null;
     }
@@ -44,18 +45,18 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<LoginLog> findAllLog() {
-        List<LoginLog> loginLogList;
-        EntityManager em;
+        EntityManager em = null;
         try {
             em = emf.createEntityManager();
             em.getTransaction().begin();
-            Query getLog = em.createNativeQuery("SELECT * FROM Login", LoginLog.class);
-            loginLogList = getLog.getResultList();
+            List<LoginLog> loginLogList =
+                    em.createNativeQuery("SELECT * FROM Login", LoginLog.class).getResultList();
             em.getTransaction().commit();
-            em.close();
             return loginLogList;
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, e.toString(), e);
+        } finally {
+            if (em != null) em.close();
         }
         return null;
     }

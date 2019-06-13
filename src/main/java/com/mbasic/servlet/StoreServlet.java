@@ -1,6 +1,6 @@
 package com.mbasic.servlet;
 
-import com.mbasic.dal.model.Item;
+import com.mbasic.dal.model.item.Item;
 import com.mbasic.dal.service.item.ItemService;
 
 import javax.inject.Inject;

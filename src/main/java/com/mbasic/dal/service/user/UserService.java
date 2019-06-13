@@ -1,7 +1,7 @@
 package com.mbasic.dal.service.user;
 
-import com.mbasic.dal.model.LoginLog;
-import com.mbasic.dal.model.User;
+import com.mbasic.dal.model.log.LoginLog;
+import com.mbasic.dal.model.user.User;
 
 import java.util.List;
 

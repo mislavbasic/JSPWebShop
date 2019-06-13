@@ -1,4 +1,6 @@
-package com.mbasic.dal.model;
+package com.mbasic.dal.model.log;
+
+import com.mbasic.dal.model.user.User;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -10,28 +12,27 @@ public class LoginLog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "UserEmail")
-    private String userEmail;
+
+    @ManyToOne
+    private User user;
+
     @Column(name = "Date")
     private Date dateTime;
-    @Column(name = "Address")
-    private String address;
 
-    public LoginLog(String userEmail, Date dateTime, String address) {
-        this.userEmail = userEmail;
-        this.dateTime = dateTime;
-        this.address = address;
-    }
+    @Column(name = "IPAddress")
+    private String address;
 
     public LoginLog() {
     }
 
-    public int getId() {
-        return id;
+    public LoginLog(User user, Date dateTime, String address) {
+        this.user = user;
+        this.dateTime = dateTime;
+        this.address = address;
     }
 
-    public String getUserEmail() {
-        return userEmail;
+    public User getUser() {
+        return user;
     }
 
     public Date getDateTime() {

@@ -1,7 +1,7 @@
 package com.mbasic.servlet;
 
-import com.mbasic.dal.model.LoginLog;
-import com.mbasic.dal.model.User;
+import com.mbasic.dal.model.log.LoginLog;
+import com.mbasic.dal.model.user.User;
 import com.mbasic.dal.service.model.ModelService;
 import com.mbasic.dal.service.user.UserService;
 
@@ -35,7 +35,7 @@ public class LoginServlet extends HttpServlet {
         if (user != null){
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
-            LoginLog loginLog = new LoginLog(user.getEmail(), new Date(), request.getRemoteAddr());
+            LoginLog loginLog = new LoginLog(user, new Date(), request.getRemoteAddr());
             modelService.add(loginLog);
             response.sendRedirect("/WebShop/store");
         } else {

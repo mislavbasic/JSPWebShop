@@ -1,6 +1,7 @@
 package com.mbasic.servlet;
 
-import com.mbasic.dal.model.Item;
+import com.mbasic.dal.model.item.Category;
+import com.mbasic.dal.model.item.Item;
 import com.mbasic.dal.service.model.ModelService;
 
 import javax.inject.Inject;
@@ -61,7 +62,7 @@ public class AddItemServlet extends HttpServlet {
                 request.getParameter("productPrice"),
                 request.getParameter("productDescription"),
                 request.getParameter("productDetails"),
-                request.getParameter("productCategory"),
+                Category.valueOf(request.getParameter("productCategory")),
                 imgNames
         );
     }

@@ -29,12 +29,12 @@
                 <div class="form-group col-md-6">
                     <label for="firstName">First name</label>
                     <input type="text" class="form-control" id="firstName" name="firstName"
-                           value="${sessionScope.user.getFirstName()}" readonly>
+                           value="${sessionScope.user.firstName}" readonly>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="lastName">Last name</label>
                     <input type="text" class="form-control" id="lastName" name="lastName"
-                           value="${sessionScope.user.getLastName()}" readonly>
+                           value="${sessionScope.user.lastName}" readonly>
                 </div>
             </div>
 
@@ -42,42 +42,42 @@
                 <div class="form-group col-md-6">
                     <label for="eMail">Email</label>
                     <input type="email" class="form-control" id="eMail" name="eMail"
-                           value="${sessionScope.user.getEmail()}" readonly>
+                           value="${sessionScope.user.email}" readonly>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" name="password"
-                           value="${sessionScope.user.getPassword()}" readonly>
+                           value="${sessionScope.user.password}" readonly>
                 </div>
             </div>
 
             <div class="form-group col-md-12">
                 <label for="address1">Address</label>
                 <input type="text" class="form-control" id="address1" name="address1"
-                       value="${sessionScope.user.getAddress().getAddress1()}" readonly>
+                       value="${sessionScope.user.addresses[0].address1}" readonly>
             </div>
 
             <div class="form-group col-md-12">
                 <label for="address2">Address 2</label>
                 <input type="text" class="form-control" id="address2" name="address2"
-                       value="${sessionScope.user.getAddress().getAddress2()}" readonly>
+                       value="${sessionScope.user.addresses[0].address2}" readonly>
             </div>
 
             <div class="form-group">
                 <div class="form-group col-md-5">
                     <label for="state">State</label>
                     <input type="text" class="form-control" id="state" name="state"
-                           value="${sessionScope.user.getAddress().getState()}" readonly>
+                           value="${sessionScope.user.addresses[0].state}" readonly>
                 </div>
                 <div class="form-group col-md-5">
                     <label for="city">City</label>
                     <input type="text" class="form-control" id="city" name="city"
-                           value="${sessionScope.user.getAddress().getCity()}" readonly>
+                           value="${sessionScope.user.addresses[0].city}" readonly>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="zip">Zip</label>
                     <input type="text" class="form-control" id="zip" name="zip"
-                           value="${sessionScope.user.getAddress().getZip()}" readonly>
+                           value="${sessionScope.user.addresses[0].zip}" readonly>
                 </div>
             </div>
         </div>

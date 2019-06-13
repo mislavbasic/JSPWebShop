@@ -75,7 +75,7 @@
                     </div>
                     <div class="form-group col-md-2">
                         <label for="zip">Zip</label>
-                        <input type="text" class="form-control" id="zip" placeholder="10000" name="zip" required>
+                        <input type="number" class="form-control" id="zip" placeholder="10000" name="zip" required>
                     </div>
                 </div>
                 <div class="col-md-5"></div>

@@ -1,10 +1,9 @@
 package com.mbasic.dal.service.item;
 
-import com.mbasic.dal.model.Item;
+import com.mbasic.dal.model.item.Item;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,55 +16,55 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public List<Item> findByCategory(String category) {
-        List<Item> itemList;
-        EntityManager em;
+        EntityManager em = null;
         try {
             em = emf.createEntityManager();
             em.getTransaction().begin();
-            //TODO: ne mogu gledat ni ovo
-            Query findByCategory = em.createNativeQuery("SELECT * FROM Items WHERE Category = " + category, Item.class);
-            itemList = findByCategory.getResultList();
+            List<Item> itemList =
+                    em.createNativeQuery("SELECT * FROM Items WHERE Category = " + category, Item.class)
+                            .getResultList();
             em.getTransaction().commit();
-            em.close();
             return itemList;
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, e.toString(), e);
+        } finally {
+            if (em != null) em.close();
         }
         return null;
     }
 
     @Override
     public Item findById(int id) {
-        Item item;
-        EntityManager em;
+        EntityManager em = null;
         try {
             em = emf.createEntityManager();
             em.getTransaction().begin();
-            Query findById = em.createNativeQuery("SELECT * FROM Items WHERE IDItem = " + id, Item.class);
-            item = (Item) findById.getSingleResult();
+            Item item = em.find(Item.class, id);
             em.getTransaction().commit();
-            em.close();
             return item;
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, e.toString(), e);
+        } finally {
+            if (em != null) em.close();
         }
         return null;
     }
 
     @Override
     public List<Item> findAll() {
-        List<Item> itemList;
-        EntityManager em;
+        EntityManager em = null;
         try {
             em = emf.createEntityManager();
             em.getTransaction().begin();
-            Query findAll = em.createNativeQuery("SELECT * FROM Items", Item.class);
-            itemList = findAll.getResultList();
+            List<Item> itemList =
+                    em.createNativeQuery("SELECT * FROM Items", Item.class)
+                            .getResultList();
             em.getTransaction().commit();
-            em.close();
             return itemList;
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, e.toString(), e);
+        } finally {
+            if (em != null) em.close();
         }
         return null;
     }

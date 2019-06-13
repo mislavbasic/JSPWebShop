@@ -47,9 +47,9 @@
                                 <%--@elvariable id="logList" type="java.util.List"--%>
                                 <c:forEach items="${logList}" var="log">
                                     <tr>
-                                        <td>${log.getUserEmail()}</td>
-                                        <td>${log.getDateTime()}</td>
-                                        <td>${log.getAddress()}</td>
+                                        <td>${log.user.email}</td>
+                                        <td>${log.dateTime}</td>
+                                        <td>${log.address}</td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>
@@ -72,10 +72,10 @@
                                 <div class="form-group col-md-6">
                                     <label for="productCategory">Category</label>
                                     <select class="form-control" id="productCategory" name="productCategory" required>
-                                        <option value="laptop">Laptop</option>
-                                        <option value="smartphone">Smartphone</option>
-                                        <option value="camera">Camera</option>
-                                        <option value="accessory">Accessory</option>
+                                        <option value="LAPTOP">Laptop</option>
+                                        <option value="PHONE">Smartphone</option>
+                                        <option value="TABLET">Camera</option>
+                                        <option value="ACCESSORY">Accessory</option>
                                     </select>
                                 </div>
 

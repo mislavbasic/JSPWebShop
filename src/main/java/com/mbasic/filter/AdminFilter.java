@@ -1,6 +1,7 @@
 package com.mbasic.filter;
 
-import com.mbasic.dal.model.User;
+import com.mbasic.dal.model.user.Role;
+import com.mbasic.dal.model.user.User;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -22,7 +23,7 @@ public class AdminFilter implements Filter {
         boolean loggedIn = session != null && session.getAttribute("user") != null;
         if (loggedIn) {
             User user = (User) session.getAttribute("user");
-            boolean isAdmin = user.getRole().equals("ADMIN");
+            boolean isAdmin = user.getRole().equals(Role.ADMIN);
             if (isAdmin) {
                 chain.doFilter(req, resp);
             } else {

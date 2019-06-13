@@ -1,7 +1,7 @@
-<%--@elvariable id="item" type="com.mbasic.dal.model.Item"--%>
+<%--@elvariable id="item" type="com.mbasic.dal.model.item.Item"--%>
 <%--
   Created by IntelliJ IDEA.
-  User: Mislav
+  user: Mislav
   Date: 4/15/2019
   Time: 2:52 PM
   To change this template use File | Settings | File Templates.

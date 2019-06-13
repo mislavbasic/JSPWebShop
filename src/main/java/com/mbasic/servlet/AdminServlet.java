@@ -1,6 +1,6 @@
 package com.mbasic.servlet;
 
-import com.mbasic.dal.model.LoginLog;
+import com.mbasic.dal.model.log.LoginLog;
 import com.mbasic.dal.service.user.UserService;
 
 import javax.inject.Inject;

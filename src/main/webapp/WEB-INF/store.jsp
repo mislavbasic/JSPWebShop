@@ -115,7 +115,7 @@
                 </div>
 
                 <div class="row">
-                    <%--@elvariable id="itemList" type="java.util.List"--%>
+                    <%--@elvariable id="itemList" type="java.util.Collection"--%>
                     <c:forEach items="${itemList}" var="item">
                         <div class="col-md-4 col-xs-6">
                             <div class="product">
