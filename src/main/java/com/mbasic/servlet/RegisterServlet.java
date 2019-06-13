@@ -29,11 +29,7 @@ public class RegisterServlet extends HttpServlet {
 
         if (modelService.add(user)){
             modelService.add(address);
-            HttpSession session = request.getSession();
-            session.setAttribute("user", user);
-            LoginLog loginLog = new LoginLog(user, new Date(), request.getRemoteAddr());
-            modelService.add(loginLog);
-            response.sendRedirect("/WebShop/store");
+            response.sendRedirect("/WebShop/login");
         } else {
             doGet(request, response);
         }
