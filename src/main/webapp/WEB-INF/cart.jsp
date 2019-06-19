@@ -24,29 +24,31 @@
 
 <div class="container">
     <div class="row">
-        <div class="order-details">
+        <div class="order-details" style="margin-bottom: 12%;">
             <div class="order-summary">
                 <div class="order-col">
+                    <div></div>
                     <div><strong>PRODUCT</strong></div>
                     <div><strong>QTY</strong></div>
-                    <div><strong>REMOVE</strong></div>
-                    <div><strong>TOTAL</strong></div>
+                    <div></div>
+                    <div><strong>PRICE</strong></div>
                 </div>
 
-                <c:forEach items="${sessionScope.cart}" var="item">
+                <c:forEach items="${sessionScope.cart}" var="order">
                     <div class="order-col">
-                        <div>${item.name}</div>
+                        <div><img src="${pageContext.request.contextPath}/img/${order.item.imgNames[0]}" style="width:50px;height:50px;" alt=""></div>
+                        <div>${order.item.name}</div>
                         <div style="padding-right: 33%">
                             <div class="input-number">
-                                <input type="number" value="1">
+                                <input type="number" value="${order.qty}" id="${order.item.id}" readonly>
                                 <span class="qty-up">+</span>
                                 <span class="qty-down">-</span>
                             </div>
                         </div>
                         <div>
-                            <button class="btn btn-danger">X</button>
+                            <button class="btn" style="background-color: #D10024; color: #FFFFFF" value="${order.item.id}">Remove</button>
                         </div>
-                        <div>${item.price}</div>
+                        <div>$${order.item.price * order.qty}</div>
                     </div>
                 </c:forEach>
 
@@ -54,7 +56,8 @@
                     <div><strong>TOTAL</strong></div>
                     <div></div>
                     <div></div>
-                    <div><strong class="order-total">$2940.00</strong></div>
+                    <div></div>
+                    <div><strong class="order-total">$${sessionScope.total}</strong></div>
                 </div>
             </div>
             <div class="payment-method">
@@ -65,7 +68,7 @@
                         Paypal
                     </label>
                     <div class="caption">
-                        <p>PEJPAL IMPLEMENTIRAT OVDJE!</p>
+                        <p>pejpalpejpalpejpal</p>
                     </div>
                 </div>
 
@@ -85,5 +88,8 @@
     </div>
 </div>
 <%@include file="footer.jsp" %>
+
+<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/numberInputCart.js"></script>
 </body>
 </html>

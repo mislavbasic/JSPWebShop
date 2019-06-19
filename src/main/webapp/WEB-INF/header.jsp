@@ -9,7 +9,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <header>
-    <div id="header">
+    <div id="top-header">
         <div class="container">
             <div class="row">
 
@@ -54,7 +54,7 @@
                             <div>
                                 <a href="${pageContext.request.contextPath}/account">
                                     <i class="fa fa-user-o"></i>
-                                    <span>My Account</span>
+                                    <span>Account</span>
                                 </a>
                             </div>
                             <!-- /My Account -->

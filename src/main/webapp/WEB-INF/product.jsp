@@ -69,6 +69,7 @@
                             </div>
                         </div>
                         <input type="hidden" value="${item.id}" name="itemId">
+                        <input type="hidden" value="add" name="operation">
                         <br>
                         <div style="margin-top: 2%">
                             <button class="add-to-cart-btn" type="submit"><i class="fa fa-shopping-cart"></i> add to cart

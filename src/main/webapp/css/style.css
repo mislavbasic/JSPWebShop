@@ -60,7 +60,7 @@ ul, ol {
 
 .input {
   height: 40px;
-  padding: 0px 15px;
+  padding: 0 15px;
   border: 1px solid #E4E7ED;
   background-color: #FFF;
   width: 100%;
@@ -88,7 +88,7 @@ textarea.input {
   width: 100%;
   border: 1px solid #E4E7ED;
   background-color: #FFF;
-  padding: 0px 35px 0px 15px;
+  padding: 0 35px 0 15px;
 }
 
 .input-number .qty-up, .input-number .qty-down {
@@ -110,7 +110,7 @@ textarea.input {
 .input-number .qty-up {
   right: 0;
   top: 0;
-  border-bottom: 0px;
+  border-bottom: 0;
 }
 
 .input-number .qty-down {
@@ -126,7 +126,7 @@ textarea.input {
 /*-- Select input --*/
 
 .input-select {
-  padding: 0px 15px;
+  padding: 0 15px;
   background: #FFF;
   border: 1px solid #E4E7ED;
   height: 40px;
@@ -155,7 +155,7 @@ textarea.input {
 
 .input-radio input[type="radio"]+label span, .input-checkbox input[type="checkbox"]+label span {
   position: absolute;
-  left: 0px;
+  left: 0;
   top: 4px;
   width: 14px;
   height: 14px;
@@ -248,7 +248,7 @@ textarea.input {
 .section-title .title {
   display: inline-block;
   text-transform: uppercase;
-  margin: 0px;
+  margin: 0;
 }
 
 .section-title .section-nav {
@@ -265,7 +265,7 @@ textarea.input {
 }
 
 .section-tab-nav li:last-child {
-  margin-right: 0px;
+  margin-right: 0;
 }
 
 .section-tab-nav li a {
@@ -276,7 +276,7 @@ textarea.input {
 .section-tab-nav li a:after {
   content: "";
   display: block;
-  width: 0%;
+  width: 0;
   height: 2px;
   background-color: #D10024;
   -webkit-transition: 0.2s all;
@@ -292,8 +292,8 @@ textarea.input {
 }
 
 .section-title .section-nav .products-slick-nav {
-  top: 0px;
-  right: 0px;
+  top: 0;
+  right: 0;
 }
 
 /*=========================================================
@@ -307,7 +307,7 @@ textarea.input {
 #top-header {
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: #1E1F29;
+  background-color: #15161D;
 }
 
 .header-links li {
@@ -317,7 +317,7 @@ textarea.input {
 }
 
 .header-links li:last-child {
-  margin-right: 0px;
+  margin-right: 0;
 }
 
 .header-links li a {
@@ -356,7 +356,7 @@ textarea.input {
 \*----------------------------*/
 
 .header-search {
-  padding: 15px 0px;
+  padding: 15px 0;
 }
 
 .header-search form {
@@ -365,13 +365,13 @@ textarea.input {
 
 .header-search form .input-select {
   margin-right: -4px;
-  border-radius: 40px 0px 0px 40px;
+  border-radius: 40px 0 0 40px;
 }
 
 .header-search form .input {
   width: calc(100% - 100px);
   margin-right: -4px;
-  border-radius: 40px 0px 0px 40px;
+  border-radius: 40px 0 0 40px;
 }
 
 .header-search form .search-btn {
@@ -381,7 +381,7 @@ textarea.input {
   color: #FFF;
   font-weight: 700;
   border: none;
-  border-radius: 0px 40px 40px 0px;
+  border-radius: 0 40px 40px 0;
 }
 
 /*----------------------------*\
@@ -389,7 +389,7 @@ textarea.input {
 \*----------------------------*/
 
 .header-ctn {
-  padding: 20px 0px;
+  padding: 20px 0;
 }
 
 .header-ctn>div {
@@ -403,7 +403,7 @@ textarea.input {
 .header-ctn>div>a {
   display: block;
   position: relative;
-  width: 75px;
+  width: 70px;
   text-align: center;
   color: #FFF;
 }
@@ -442,7 +442,7 @@ textarea.input {
 .shop {
   position: relative;
   overflow: hidden;
-  margin: 15px 0px;
+  margin: 15px 0;
 }
 
 .shop:before {
@@ -450,7 +450,7 @@ textarea.input {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 0px;
+  left: 0;
   width: 60%;
   background: #D10024;
   opacity: 0.9;
@@ -518,16 +518,16 @@ textarea.input {
 
 .product {
   position: relative;
-  margin: 15px 0px;
-  -webkit-box-shadow: 0px 0px 0px 0px #E4E7ED, 0px 0px 0px 1px #E4E7ED;
-  box-shadow: 0px 0px 0px 0px #E4E7ED, 0px 0px 0px 1px #E4E7ED;
+  margin: 15px 0;
+  -webkit-box-shadow: 0 0 0 0 #E4E7ED, 0 0 0 1px #E4E7ED;
+  box-shadow: 0 0 0 0 #E4E7ED, 0 0 0 1px #E4E7ED;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
 }
 
 .product:hover {
-  -webkit-box-shadow: 0px 0px 6px 0px #E4E7ED, 0px 0px 0px 2px #D10024;
-  box-shadow: 0px 0px 6px 0px #E4E7ED, 0px 0px 0px 2px #D10024;
+  -webkit-box-shadow: 0 0 6px 0 #E4E7ED, 0 0 0 2px #D10024;
+  box-shadow: 0 0 6px 0 #E4E7ED, 0 0 0 2px #D10024;
 }
 
 .product .product-img {
@@ -602,7 +602,7 @@ textarea.input {
 
 .product .product-body .product-rating {
   position: relative;
-  margin: 15px 0px 10px;
+  margin: 15px 0 10px;
   height: 20px;
 }
 
@@ -730,7 +730,7 @@ textarea.input {
   background-color: #FFF;
   color: #D10024;
   border-color: #D10024;
-  padding: 0px 30px 0px 50px;
+  padding: 0 30px 0 50px;
 }
 
 .product .add-to-cart .add-to-cart-btn:hover>i {
@@ -782,7 +782,7 @@ textarea.input {
   width: 20px;
   height: 20px;
   display: inline-block !important;
-  margin: 0px 2px;
+  margin: 0 2px;
 }
 
 .products-slick-nav .slick-prev:before, .products-slick-nav .slick-next:before {
@@ -804,7 +804,7 @@ textarea.input {
 .aside>.aside-title {
   text-transform: uppercase;
   font-size: 18px;
-  margin: 15px 0px 30px;
+  margin: 15px 0 30px;
 }
 
 /*-- checkbox Filter --*/
@@ -976,7 +976,7 @@ textarea.input {
 }
 
 #product-imgs .product-preview {
-  margin: 0px 5px;
+  margin: 0 5px;
   border: 1px solid #E4E7ED;
 }
 
@@ -1057,7 +1057,7 @@ textarea.input {
   font-size: 12px;
   text-transform: uppercase;
   margin-right: 15px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 .product-details .product-options .input-select {
@@ -1098,7 +1098,7 @@ textarea.input {
   background-color: #FFF;
   color: #D10024;
   border-color: #D10024;
-  padding: 0px 30px 0px 50px;
+  padding: 0 30px 0 50px;
 }
 
 .product-details .add-to-cart .add-to-cart-btn:hover>i {
@@ -1112,7 +1112,7 @@ textarea.input {
   font-size: 12px;
   text-transform: uppercase;
   margin-right: 15px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 .product-details .add-to-cart .qty-label .input-number {
@@ -1155,7 +1155,7 @@ textarea.input {
 #product-tab .tab-nav {
   position: relative;
   text-align: center;
-  padding: 15px 0px;
+  padding: 15px 0;
   margin-bottom: 30px;
 }
 
@@ -1173,7 +1173,7 @@ textarea.input {
 #product-tab .tab-nav li {
   display: inline-block;
   background: #FFF;
-  padding: 0px 15px;
+  padding: 0 15px;
 }
 
 #product-tab .tab-nav li+li {
@@ -1193,7 +1193,7 @@ textarea.input {
 #product-tab .tab-nav li a:after {
   content: "";
   display: block;
-  width: 0%;
+  width: 0;
   height: 2px;
   background-color: #D10024;
   -webkit-transition: 0.2s all;
@@ -1220,7 +1220,7 @@ textarea.input {
 }
 
 .order-summary {
-  margin: 15px 0px;
+  margin: 15px 0;
   display: table;
   width: 100%;
 }
@@ -1231,7 +1231,7 @@ textarea.input {
 
 .order-summary .order-col>div {
   display: table-cell;
-  padding: 10px 0px;
+  padding: 10px 0;
 }
 
 .order-summary .order-col>div:last-child {
@@ -1244,7 +1244,7 @@ textarea.input {
 }
 
 .order-details .payment-method {
-  margin: 30px 0px;
+  margin: 30px 0;
 }
 
 .order-details .order-submit {
@@ -1266,14 +1266,14 @@ textarea.input {
 }
 
 .footer {
-  margin: 30px 0px;
+  margin: 30px 0;
 }
 
 .footer .footer-title {
   color: #FFF;
   text-transform: uppercase;
   font-size: 18px;
-  margin: 0px 0px 30px;
+  margin: 0 0 30px;
 }
 
 .footer-links li+li {
@@ -1383,7 +1383,7 @@ textarea.input {
 
 .custom-dots .slick-dots {
   position: static;
-  margin: 15px 0px;
+  margin: 15px 0;
 }
 
 /*=========================================================

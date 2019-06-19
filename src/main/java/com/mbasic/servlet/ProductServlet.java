@@ -22,7 +22,7 @@ public class ProductServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         Item item = itemService.findById(id);
         if (item == null) {
-            response.sendRedirect("/WebShop/404.jsp");
+            response.sendError(404);
         } else {
             request.setAttribute("item", item);
             RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/product.jsp");

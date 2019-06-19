@@ -105,7 +105,7 @@
 
                                 <div class="form-group col-md-6">
                                     <input class="btn pull-right" type="submit" value="Submit"
-                                           style="background-color: #D10024; color: #FFFFFF; margin-top: 2%;"/>
+                                           style="background-color: #D10024; color: #FFFFFF; margin-top: 2%; margin-bottom: 2%;"/>
                                 </div>
                             </form>
                         </div>
