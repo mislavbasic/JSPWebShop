@@ -1,6 +1,7 @@
 package com.mbasic.dal.model.user;
 
 import com.mbasic.dal.model.log.LoginLog;
+import com.mbasic.dal.model.log.OrderLog;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -37,6 +38,9 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<LoginLog> loginLogs = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user")
+    private List<OrderLog> orderLogs = new ArrayList<>();
+
     public User() {
     }
 
@@ -70,5 +74,9 @@ public class User {
 
     public List<Address> getAddresses() {
         return addresses;
+    }
+
+    public int getId() {
+        return id;
     }
 }

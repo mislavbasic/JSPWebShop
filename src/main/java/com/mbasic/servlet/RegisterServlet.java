@@ -1,7 +1,6 @@
 package com.mbasic.servlet;
 
 import com.mbasic.dal.model.user.Address;
-import com.mbasic.dal.model.log.LoginLog;
 import com.mbasic.dal.model.user.Role;
 import com.mbasic.dal.model.user.User;
 import com.mbasic.dal.service.model.ModelService;
@@ -13,9 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Date;
 
 @WebServlet(name = "RegisterServlet", urlPatterns = {"/register"})
 public class RegisterServlet extends HttpServlet {

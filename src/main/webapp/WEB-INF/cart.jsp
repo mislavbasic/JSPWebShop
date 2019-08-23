@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.min.css">
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/favicon.ico" type="image/x-icon">
 </head>
 <body>
 <jsp:include page="header.jsp">
@@ -24,7 +25,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="order-details" style="margin-bottom: 12%;">
+        <div class="order-details" style="margin-bottom: 13%;">
             <div class="order-summary">
                 <div class="order-col">
                     <div></div>
@@ -67,9 +68,7 @@
                         <span></span>
                         Paypal
                     </label>
-                    <div class="caption">
-                        <p>pejpalpejpalpejpal</p>
-                    </div>
+                    <div id="paypal-button-container" style="width: 20%" class="caption"></div>
                 </div>
 
                 <div class="input-radio">
@@ -91,5 +90,63 @@
 
 <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/numberInputCart.js"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=Ad1nzMjMbq3iaKuO2FZJzZlLBxLTjfPA1V6DrqCC1hPHUEtH_4QnjiYo6AvFmAkyarqnaWlVHIjVjHYl"></script>
+<script>  paypal.Buttons({
+    style: {
+        size: 'responsive',
+        layout: 'horizontal',
+        color:  'blue',
+        shape:  'pill',
+        label:  'checkout',
+        tagline: 'false'
+    },
+
+    createOrder: function(data, actions) {
+        return actions.order.create({
+            purchase_units: [{
+                amount: {
+                    currency_code: 'USD',
+                    value: '${sessionScope.total}',
+                    breakdown: {
+                        item_total: {
+                            currency_code: 'USD',
+                            value: '${sessionScope.total}'
+                        }
+                    }
+                },
+                items: [
+                    <c:forEach items="${sessionScope.cart}" var="order">
+                    {
+                        name: '${order.item.name}',
+                        unit_amount: {
+                            currency_code: 'USD',
+                            value: '${order.item.price}'
+                        },
+                        quantity: '${order.qty}',
+                        description: '${order.item.description}'
+                    },
+                    </c:forEach>
+                ]
+            }]
+        });
+    },
+    onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+            alert('Transaction completed by ' + details.payer.name.given_name);
+            // Call your server to save the transaction
+            return fetch('/WebShop/paypal-transaction-complete', {
+                method: 'post',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                    orderID: data.orderID
+                })
+            });
+        });
+    }
+}).render('#paypal-button-container');
+
+</script>
 </body>
 </html>

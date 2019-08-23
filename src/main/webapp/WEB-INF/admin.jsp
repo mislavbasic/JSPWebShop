@@ -16,26 +16,28 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.min.css">
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/favicon.ico" type="image/x-icon">
 </head>
 <body>
 <jsp:include page="header.jsp">
     <jsp:param name="loggedIn" value="${sessionScope.user}"/>
 </jsp:include>
-<div class="row">
+<div class="row" style="margin-right: 15px;">
     <div class="col-md-3"></div>
 
     <div class="col-md-6">
         <div id="product-tab">
             <ul class="tab-nav">
-                <li class="active"><a data-toggle="tab" href="#tab1">Login log</a></li>
-                <li><a data-toggle="tab" href="#tab2">Add Item</a></li>
+                <li class="active"><a data-toggle="tab" href="#tab1">Login Log</a></li>
+                <li><a data-toggle="tab" href="#tab2">Order Log</a></li>
+                <li><a data-toggle="tab" href="#tab3">Add Item</a></li>
             </ul>
 
             <div class="tab-content">
                 <div id="tab1" class="tab-pane fade in active">
                     <div class="row">
                         <div class="col-md-12">
-                            <table class="table">
+                            <table class="table" style="margin-bottom: 300px;">
                                 <thead>
                                 <tr>
                                     <th scope="col">User Email</th>
@@ -59,6 +61,34 @@
                 </div>
 
                 <div id="tab2" class="tab-pane fade in">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table" style="margin-bottom: 300px;">
+                                <thead>
+                                <tr>
+                                    <th scope="col">User</th>
+                                    <th scope="col">Item names</th>
+                                    <th scope="col">Order date</th>
+                                    <th scope="col">Payment method</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <%--@elvariable id="orderList" type="java.util.List"--%>
+                                <c:forEach items="${orderList}" var="order">
+                                    <tr>
+                                        <td>${order.user.firstName} ${order.user.lastName}</td>
+                                        <td>${order.itemNames}</td>
+                                        <td>${order.orderDate}</td>
+                                        <td>${order.paymentMethod}</td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab3" class="tab-pane fade in">
                     <div class="row">
                         <div class="col-md-12">
                             <form action="${pageContext.request.contextPath}/admin/addItem" method="POST"

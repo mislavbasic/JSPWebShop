@@ -1,6 +1,7 @@
 package com.mbasic.servlet;
 
 import com.mbasic.dal.model.log.LoginLog;
+import com.mbasic.dal.model.log.OrderLog;
 import com.mbasic.dal.service.user.UserService;
 
 import javax.inject.Inject;
@@ -26,6 +27,9 @@ public class AdminServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<LoginLog> logList =  userService.findAllLog();
         request.setAttribute("logList", logList);
+
+        List<OrderLog> orderLogs = userService.findAllOrders();
+        request.setAttribute("orderList", orderLogs);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/admin.jsp");
         dispatcher.forward(request, response);

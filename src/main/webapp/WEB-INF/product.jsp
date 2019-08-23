@@ -20,6 +20,7 @@
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/slick.css"/>
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/slick-theme.css"/>
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/favicon.ico" type="image/x-icon">
 </head>
 <body>
 

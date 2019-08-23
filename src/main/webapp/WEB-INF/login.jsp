@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.min.css">
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/img/favicon.ico" type="image/x-icon">
 </head>
 <body>
 <jsp:include page="header.jsp">
