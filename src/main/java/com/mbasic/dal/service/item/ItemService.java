@@ -1,5 +1,6 @@
 package com.mbasic.dal.service.item;
 
+import com.mbasic.dal.model.item.Category;
 import com.mbasic.dal.model.item.Item;
 
 import java.util.List;

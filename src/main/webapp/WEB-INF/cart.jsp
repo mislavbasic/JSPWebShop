@@ -25,64 +25,74 @@
 
 <div class="container">
     <div class="row">
-        <div class="order-details" style="margin-bottom: 13%;">
-            <div class="order-summary">
-                <div class="order-col">
-                    <div></div>
-                    <div><strong>PRODUCT</strong></div>
-                    <div><strong>QTY</strong></div>
-                    <div></div>
-                    <div><strong>PRICE</strong></div>
-                </div>
+        <div class="order-details" style="margin-bottom: 20%;">
 
-                <c:forEach items="${sessionScope.cart}" var="order">
-                    <div class="order-col">
-                        <div><img src="${pageContext.request.contextPath}/img/${order.item.imgNames[0]}" style="width:50px;height:50px;" alt=""></div>
-                        <div>${order.item.name}</div>
-                        <div style="padding-right: 33%">
-                            <div class="input-number">
-                                <input type="number" value="${order.qty}" id="${order.item.id}" readonly>
-                                <span class="qty-up">+</span>
-                                <span class="qty-down">-</span>
+            <c:choose>
+                <c:when test="${sessionScope.cart == null || empty sessionScope.cart}">
+                    <div style="text-align: center; margin-bottom: 25%;"><strong>Cart is empty, please add products. &#128577;</strong></div>
+                </c:when>
+                <c:otherwise>
+                    <div class="order-summary">
+                        <div class="order-col">
+                            <div></div>
+                            <div><strong>PRODUCT</strong></div>
+                            <div><strong>QTY</strong></div>
+                            <div></div>
+                            <div><strong>PRICE</strong></div>
+                        </div>
+
+                        <c:forEach items="${sessionScope.cart}" var="order">
+                            <div class="order-col">
+                                <div><img src="${pageContext.request.contextPath}/img/${order.item.imgNames[0]}" style="width:50px;height:50px;" alt=""></div>
+                                <div>${order.item.name}</div>
+                                <div style="padding-right: 33%">
+                                    <div class="input-number">
+                                        <input type="number" value="${order.qty}" id="${order.item.id}" readonly>
+                                        <span class="qty-up">+</span>
+                                        <span class="qty-down">-</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="btn" style="background-color: #D10024; color: #FFFFFF" value="${order.item.id}">Remove</button>
+                                </div>
+                                <div>$${order.item.price * order.qty}</div>
+                            </div>
+                        </c:forEach>
+
+                        <div class="order-col">
+                            <div><strong>TOTAL</strong></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div><strong class="order-total">$${sessionScope.total}</strong></div>
+                        </div>
+                    </div>
+
+                    <c:if test="${sessionScope.user != null}">
+                        <div class="payment-method">
+                            <div class="input-radio">
+                                <input type="radio" name="payment" id="payment-3">
+                                <label for="payment-3">
+                                    <span></span>
+                                    Paypal
+                                </label>
+                                <div id="paypal-button-container" style="width: 20%" class="caption"></div>
+                            </div>
+
+                            <div class="input-radio">
+                                <input type="radio" name="payment" id="payment-1">
+                                <label for="payment-1">
+                                    <span></span>
+                                    Cash On Delivery
+                                </label>
+                                <div class="caption">
+                                    <a href="${pageContext.request.contextPath}/order" class="primary-btn order-submit">Place order</a>
+                                </div>
                             </div>
                         </div>
-                        <div>
-                            <button class="btn" style="background-color: #D10024; color: #FFFFFF" value="${order.item.id}">Remove</button>
-                        </div>
-                        <div>$${order.item.price * order.qty}</div>
-                    </div>
-                </c:forEach>
-
-                <div class="order-col">
-                    <div><strong>TOTAL</strong></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div><strong class="order-total">$${sessionScope.total}</strong></div>
-                </div>
-            </div>
-            <div class="payment-method">
-                <div class="input-radio">
-                    <input type="radio" name="payment" id="payment-3">
-                    <label for="payment-3">
-                        <span></span>
-                        Paypal
-                    </label>
-                    <div id="paypal-button-container" style="width: 20%" class="caption"></div>
-                </div>
-
-                <div class="input-radio">
-                    <input type="radio" name="payment" id="payment-1">
-                    <label for="payment-1">
-                        <span></span>
-                        Cash On Delivery
-                    </label>
-                    <div class="caption">
-                        <p>You will pay to the mailman on delivery.</p>
-                    </div>
-                </div>
-            </div>
-            <a href="#" class="primary-btn order-submit">Place order</a>
+                    </c:if>
+                </c:otherwise>
+            </c:choose>
         </div>
     </div>
 </div>
@@ -132,7 +142,8 @@
     },
     onApprove: function(data, actions) {
         return actions.order.capture().then(function(details) {
-            alert('Transaction completed by ' + details.payer.name.given_name);
+            window.location.href = 'success';
+            //alert('Transaction completed by ' + details.payer.name.given_name);
             // Call your server to save the transaction
             return fetch('/WebShop/paypal-transaction-complete', {
                 method: 'post',
@@ -146,7 +157,6 @@
         });
     }
 }).render('#paypal-button-container');
-
 </script>
 </body>
 </html>

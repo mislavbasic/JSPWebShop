@@ -8,7 +8,6 @@ import java.util.List;
 
 public interface UserService {
     User login(String email, String password);
-    List<User> findAll();
 
     List<LoginLog> findAllLog();
     List<OrderLog> findMyOrders(User user);

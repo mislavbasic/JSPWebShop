@@ -121,14 +121,10 @@
                             </table>
                         </div>
                     </div>
-
                 </div>
             </div>
-
         </div>
     </div>
-
-
 </div>
 <%@include file="footer.jsp" %>
 <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>

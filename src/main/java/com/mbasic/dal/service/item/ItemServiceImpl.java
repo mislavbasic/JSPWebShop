@@ -1,5 +1,6 @@
 package com.mbasic.dal.service.item;
 
+import com.mbasic.dal.model.item.Category;
 import com.mbasic.dal.model.item.Item;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -21,7 +22,8 @@ public class ItemServiceImpl implements ItemService {
             em = emf.createEntityManager();
             em.getTransaction().begin();
             List<Item> itemList =
-                    em.createNativeQuery("SELECT * FROM Items WHERE Category = " + category, Item.class)
+                    em.createNativeQuery("SELECT * FROM Items WHERE Category = :category", Item.class)
+                            .setParameter("category", category)
                             .getResultList();
             em.getTransaction().commit();
             return itemList;

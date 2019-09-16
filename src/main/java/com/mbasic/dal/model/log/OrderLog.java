@@ -3,6 +3,7 @@ package com.mbasic.dal.model.log;
 import com.mbasic.dal.model.user.User;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "Orders")
@@ -19,9 +20,8 @@ public class OrderLog {
     @Column(name = "itemNames")
     private String itemNames;
 
-    //TODO: stavit date
     @Column(name = "orders_date")
-    private String orderDate;
+    private Date orderDate;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "payment_method")
@@ -30,7 +30,7 @@ public class OrderLog {
     public OrderLog() {
     }
 
-    public OrderLog(User user, String itemNames, String orderDate, PaymentMethod paymentMethod) {
+    public OrderLog(User user, String itemNames, Date orderDate, PaymentMethod paymentMethod) {
         this.user = user;
         this.itemNames = itemNames;
         this.orderDate = orderDate;
@@ -41,7 +41,7 @@ public class OrderLog {
         return itemNames;
     }
 
-    public String getOrderDate() {
+    public Date getOrderDate() {
         return orderDate;
     }
 

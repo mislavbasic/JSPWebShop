@@ -42,12 +42,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> findAll() {
-        //TODO: logika
-        return null;
-    }
-
-    @Override
     public List<LoginLog> findAllLog() {
         EntityManager em = null;
         try {

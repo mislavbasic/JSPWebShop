@@ -104,7 +104,7 @@
                                     <select class="form-control" id="productCategory" name="productCategory" required>
                                         <option value="LAPTOP">Laptop</option>
                                         <option value="PHONE">Smartphone</option>
-                                        <option value="TABLET">Camera</option>
+                                        <option value="CAMERA">Camera</option>
                                         <option value="ACCESSORY">Accessory</option>
                                     </select>
                                 </div>
@@ -130,7 +130,7 @@
                                 <div class="form-group col-md-6">
                                     <label for="imgProduct">Product image</label>
                                     <input type="file" id="imgProduct" name="imgProduct" value="Upload images..."
-                                           multiple required/>
+                                           accept="image/*" multiple required/>
                                 </div>
 
                                 <div class="form-group col-md-6">

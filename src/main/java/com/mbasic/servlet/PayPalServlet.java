@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Date;
 
 @WebServlet(name = "PayPalServlet", urlPatterns = {"/paypal-transaction-complete"})
 public class PayPalServlet extends HttpServlet {
@@ -43,16 +44,20 @@ public class PayPalServlet extends HttpServlet {
 
         for (Object i : jsonArrayItems) {
             JSONObject jsonItem = (JSONObject) i;
-            String itemName = jsonItem.get("name").toString();
-            sb.append(itemName);
-            sb.append("|");
+            sb.append(jsonItem.get("name").toString());
+            sb.append("[");
+            sb.append(jsonItem.get("quantity").toString());
+            sb.append("]");
+            sb.append(",");
         }
 
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-        OrderLog orderLog = new OrderLog(user, sb.toString(), "datum", PaymentMethod.PAYPAL);
+        OrderLog orderLog = new OrderLog(user, sb.toString(), new Date(), PaymentMethod.PAYPAL);
 
         modelService.add(orderLog);
+
+        session.removeAttribute("cart");
     }
 
     private String getOrderID(HttpServletRequest request) throws IOException{
@@ -63,9 +68,5 @@ public class PayPalServlet extends HttpServlet {
         }
         JSONObject jsonObject =  new JSONObject(sb.toString());
         return jsonObject.getString("orderID");
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 }

@@ -57,9 +57,14 @@ public class CartServlet extends HttpServlet {
             }
         }
         cart.remove(orderToRemove);
-        double total = calculateTotal(cart);
-        session.setAttribute("cart", cart);
-        session.setAttribute("total", total);
+        if (!cart.isEmpty()){
+            double total = calculateTotal(cart);
+            session.setAttribute("cart", cart);
+            session.setAttribute("total", total);
+        } else{
+            session.removeAttribute("cart");
+        }
+
     }
 
     private void updateCart(HttpSession session, int itemIdUpdate, int qtyUpdate) {

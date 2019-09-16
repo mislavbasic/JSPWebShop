@@ -28,10 +28,4 @@ public class ModelServiceImpl implements ModelService {
         }
         return false;
     }
-
-    @Override
-    public boolean delete(Object o) {
-        //TODO: logika
-        return false;
-    }
 }
