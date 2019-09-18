@@ -14,7 +14,7 @@
             <div class="row">
 
                 <!-- LOGO -->
-                <div class="col-md-3">
+                <div class="col-md-8">
                     <div class="header-logo">
                         <a href="${pageContext.request.contextPath}/store" class="logo">
                             <img src="${pageContext.request.contextPath}/img/logo.png" alt="">
@@ -24,14 +24,14 @@
                 <!-- /LOGO -->
 
                 <!-- SEARCH -->
-                <div class="col-md-5">
-                    <div class="header-search">
-                        <form>
-                            <input class="input" placeholder="Search here">
-                            <button class="search-btn">Search</button>
-                        </form>
-                    </div>
-                </div>
+<%--                <div class="col-md-5">--%>
+<%--                    <div class="header-search">--%>
+<%--                        <form>--%>
+<%--                            <input class="input" placeholder="Search here">--%>
+<%--                            <button class="search-btn">Search</button>--%>
+<%--                        </form>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
                 <!-- /SEARCH -->
 
                 <div class="col-md-4">
